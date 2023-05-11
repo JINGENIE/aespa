@@ -6,11 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @SpringBootApplication
-public class Clone0511Application {
+public class AespaApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(Clone0511Application.class, args);
+        SpringApplication.run(AespaApplication.class, args);
 
     }
     // JSP SETTING

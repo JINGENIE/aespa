@@ -375,7 +375,7 @@
                 </div>
                 <div class="category-box">
                     <a href="#!">
-                        <img src="images/shop/category/category-2.jpg" alt="" />
+                        <img src="/img/center_earring.jpg" alt="" />
                         <div class="content">
                             <h3>Smart Casuals</h3>
                             <p>Get Wide Range Selection</p>
