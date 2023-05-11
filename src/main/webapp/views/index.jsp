@@ -386,7 +386,7 @@
             <div class="col-md-6">
                 <div class="category-box category-box-2">
                     <a href="#!">
-                        <img src="images/shop/category/category-3.jpg" alt="" />
+                        <img src="/img/center_wedding2.jpg" alt="" />
                         <div class="content">
                             <h3>Jewellery</h3>
                             <p>Special Design Comes First</p>
