@@ -1,4 +1,28 @@
 /**
+ * 화면 : login.js
+ * 내용 : 로그인 작동 및 검증
+ * 작성자 : 정인보
+ * 작성일 : 5.11
+ */
+let login_form = {
+    init:function (){ 
+      $('#login_btn').click(function (){ // login_btn > 눌리는 이벤트 발생 > 함수 실행
+        login_form.send();
+      });
+    },
+  send:function () {
+    $('#login_form').attr({ 
+      'action':'/loginimpl', // main controller에서 처리
+      'method':'post'
+    });
+    $('#login_form').submit(); // form 입력받은 정보 보내기
+  }
+};
+
+
+
+
+/**
  * WEBSITE: https://themefisher.com
  * TWITTER: https://twitter.com/themefisher
  * FACEBOOK: https://www.facebook.com/themefisher

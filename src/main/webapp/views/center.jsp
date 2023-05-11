@@ -3,44 +3,53 @@
 
 
 
-
+<!-- center 시작 구간 -->
+<!-- 상단 슬라이드  이미지 구간 -->
 <div class="hero-slider">
-  <div class="slider-item th-fullpage hero-area" style="background-image: url(#);">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 text-center">
-          <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
-          <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5"> Gift Set Gift Set <br> is hidden in details.</h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">상품 자세히보기</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="slider-item th-fullpage hero-area" style="background-image: url(#);">
+  <div class="slider-item th-fullpage hero-area" style="background-image: url(/img/center_jewelry.png);">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 text-left">
-          <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
-          <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">The beauty of nature <br> is hidden in details.</h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+          <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Earrings</p>
+          <h4 style="color: whitesmoke" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5"> 시선을 사로잡는 방법<br>Aespa 이어링으로 모두에게 기분좋은 관심을 즐기세요.</h4><br>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">자세히보기</a>
         </div>
       </div>
     </div>
   </div>
-  <div class="slider-item th-fullpage hero-area" style="background-image: url(#);">
+  <div class="slider-item th-fullpage hero-area" style="background-image: url(/img/center_bracelet.png);">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 text-center">
+          <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Bracelets</p>
+          <h4 style="color: whitesmoke" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">클래식한 실루엣과 디자인으로 상상력 그 너머의 세계<br>섬세한 스타일로 예측할 수 없는 매력을 연출하세요.</h4><br>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">자세히보기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slider-item th-fullpage hero-area" style="background-image: url(/img/center_watch.jpg);">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 text-right">
-          <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
-          <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">The beauty of nature <br> is hidden in details.</h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+          <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Wathchs</p>
+          <h4 style="color: whitesmoke" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">150여 년에 걸친 정밀성과 파인 주얼리 컬렉션으로 <br>하나뿐인 시계를 손목에서 경험해 보세요.</h4><br>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">자세히보기</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-
+<!--
+/**
+* 화면 : login.js
+* 내용 : login 기능 구현 중
+* 작성자 : 정인보
+* 작성일 : 5.11
+*/
+-->
 <section class="product-category section">
+  <%--  중간 이미지 구간 (3개)   --%>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -49,20 +58,21 @@
         </div>
       </div>
       <div class="col-md-6">
+        <%--  중간 좌측 : 1번 이미지 --%>
         <div class="category-box">
           <a href="#!">
-            <img src="images/shop/category/category-1.jpg" alt="" />
+            <img src="/img/center_wedding.jpg" alt="" />
             <div class="content">
-              <h3>Clothes Sales</h3>
+              <h3>Jewellery</h3>
               <p>Shop New Season Clothing</p>
             </div>
           </a>
         </div>
         <div class="category-box">
           <a href="#!">
-            <img src="images/shop/category/category-2.jpg" alt="" />
+            <img src="/img/center_earring.jpg" alt="" />
             <div class="content">
-              <h3>Smart Casuals</h3>
+              <h3 style="color : whitesmoke">Smart Casuals</h3>
               <p>Get Wide Range Selection</p>
             </div>
           </a>
@@ -71,18 +81,18 @@
       <div class="col-md-6">
         <div class="category-box category-box-2">
           <a href="#!">
-            <img src="images/shop/category/category-3.jpg" alt="" />
+            <img src="/img/center_wedding2.jpg" alt="" />
             <div class="content">
-              <h3>Jewellery</h3>
+              <h3>Wedding</h3>
               <p>Special Design Comes First</p>
             </div>
           </a>
         </div>
       </div>
     </div>
-  </div>
+  </div> <%--  중간 이미지 구간 끝. (3개)   --%>
 </section>
-
+<!-- 하단 상품 보기 -->
 <section class="products section bg-gray">
   <div class="container">
     <div class="row">
@@ -165,6 +175,7 @@
               </ul>
             </div>
           </div>
+
           <div class="product-content">
             <h4><a href="product-single.html">Strayhorn SP</a></h4>
             <p class="price">$230</p>
@@ -390,12 +401,6 @@ Start Call To Action
   </div>   	<!-- End container -->
 </section>   <!-- End section -->
 
-
-
-
-
-
-
 <section class="section instagram-feed">
   <div class="container">
     <div class="row">
@@ -409,5 +414,4 @@ Start Call To Action
       </div>
     </div>
   </div>
-</section>
-<%-- center 끝. --%>
+</section>  <%-- center 끝. --%>
