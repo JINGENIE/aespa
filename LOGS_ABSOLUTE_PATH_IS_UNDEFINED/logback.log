@@ -1,0 +1,96 @@
+[2023-05-11 15:55:06:1331][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+[2023-05-11 15:55:06:1373][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 2 mappings in 'requestMappingHandlerMapping'
+[2023-05-11 15:55:06:1515][restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+[2023-05-11 15:55:06:1520][restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+[2023-05-11 15:55:23:18444][http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2023-05-11 15:55:23:18445][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+[2023-05-11 15:55:23:18445][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+[2023-05-11 15:55:23:18445][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+[2023-05-11 15:55:23:18446][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@61cae19f
+[2023-05-11 15:55:23:18446][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@27205cb3
+[2023-05-11 15:55:23:18446][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+[2023-05-11 15:55:23:18446][http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2023-05-11 15:56:48:1484][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+[2023-05-11 15:56:48:1530][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 2 mappings in 'requestMappingHandlerMapping'
+[2023-05-11 15:56:49:1737][restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+[2023-05-11 15:56:49:1744][restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+[2023-05-11 15:56:59:12533][http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2023-05-11 15:56:59:12534][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+[2023-05-11 15:56:59:12534][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+[2023-05-11 15:56:59:12534][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+[2023-05-11 15:56:59:12534][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@cf5cba6
+[2023-05-11 15:56:59:12535][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@775f52d0
+[2023-05-11 15:56:59:12535][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+[2023-05-11 15:56:59:12535][http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2023-05-11 16:01:52:1364][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+[2023-05-11 16:01:52:1393][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in 'requestMappingHandlerMapping'
+[2023-05-11 16:01:52:1574][restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+[2023-05-11 16:01:52:1579][restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+[2023-05-11 16:01:53:1913][http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2023-05-11 16:01:53:1914][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+[2023-05-11 16:01:53:1914][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+[2023-05-11 16:01:53:1914][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+[2023-05-11 16:01:53:1914][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4f2ccd51
+[2023-05-11 16:01:53:1915][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@5ba1ae7d
+[2023-05-11 16:01:53:1915][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+[2023-05-11 16:01:53:1915][http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2023-05-11 16:02:50:1305][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+[2023-05-11 16:02:50:1335][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in 'requestMappingHandlerMapping'
+[2023-05-11 16:02:50:1482][restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+[2023-05-11 16:02:50:1487][restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+[2023-05-11 16:03:06:17928][http-nio-8089-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2023-05-11 16:03:06:17929][http-nio-8089-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+[2023-05-11 16:03:06:17929][http-nio-8089-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+[2023-05-11 16:03:06:17929][http-nio-8089-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+[2023-05-11 16:03:06:17930][http-nio-8089-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5a7b4475
+[2023-05-11 16:03:06:17930][http-nio-8089-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@7c88a8ae
+[2023-05-11 16:03:06:17930][http-nio-8089-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+[2023-05-11 16:03:06:17930][http-nio-8089-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2023-05-11 16:04:58:1421][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+[2023-05-11 16:04:58:1453][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in 'requestMappingHandlerMapping'
+[2023-05-11 16:04:59:1623][restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+[2023-05-11 16:04:59:1627][restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+[2023-05-11 16:05:04:7430][http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2023-05-11 16:05:04:7432][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+[2023-05-11 16:05:04:7432][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+[2023-05-11 16:05:04:7432][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+[2023-05-11 16:05:04:7433][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@30f8549b
+[2023-05-11 16:05:04:7433][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@59c1e9e2
+[2023-05-11 16:05:04:7433][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+[2023-05-11 16:05:04:7433][http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2023-05-11 16:06:27:1420][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+[2023-05-11 16:06:27:1453][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in 'requestMappingHandlerMapping'
+[2023-05-11 16:06:27:1604][restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+[2023-05-11 16:06:27:1609][restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+[2023-05-11 16:06:30:4843][http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2023-05-11 16:06:30:4844][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+[2023-05-11 16:06:30:4844][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+[2023-05-11 16:06:30:4844][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+[2023-05-11 16:06:30:4845][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@23dadcfe
+[2023-05-11 16:06:30:4845][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@79d6646f
+[2023-05-11 16:06:30:4845][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+[2023-05-11 16:06:30:4845][http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2023-05-11 16:08:29:2434][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+[2023-05-11 16:08:30:2491][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in 'requestMappingHandlerMapping'
+[2023-05-11 16:08:30:2750][restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+[2023-05-11 16:08:30:2760][restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+[2023-05-11 16:08:36:8930][http-nio-80-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2023-05-11 16:08:36:8931][http-nio-80-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+[2023-05-11 16:08:36:8931][http-nio-80-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+[2023-05-11 16:08:36:8931][http-nio-80-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+[2023-05-11 16:08:36:8932][http-nio-80-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1fbcd420
+[2023-05-11 16:08:36:8932][http-nio-80-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@604b0103
+[2023-05-11 16:08:36:8932][http-nio-80-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+[2023-05-11 16:08:36:8932][http-nio-80-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2023-05-11 16:09:46:1552][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+[2023-05-11 16:09:46:1589][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in 'requestMappingHandlerMapping'
+[2023-05-11 16:09:46:1763][restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+[2023-05-11 16:09:46:1774][restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+[2023-05-11 16:10:14:29593][http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2023-05-11 16:10:14:29595][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+[2023-05-11 16:10:14:29595][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+[2023-05-11 16:10:14:29595][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+[2023-05-11 16:10:14:29596][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@cf5cba6
+[2023-05-11 16:10:14:29596][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@775f52d0
+[2023-05-11 16:10:14:29596][http-nio-80-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+[2023-05-11 16:10:14:29596][http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
