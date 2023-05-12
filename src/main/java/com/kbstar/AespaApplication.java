@@ -9,7 +9,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 public class AespaApplication {
 
     public static void main(String[] args) {
-
         SpringApplication.run(AespaApplication.class, args);
 
     }
