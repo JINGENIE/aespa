@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface ProductMapper extends AespaMapper<Integer, Product> {
 
+
 }

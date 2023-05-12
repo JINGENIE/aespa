@@ -18,7 +18,6 @@ public class CartService implements AespaService<Integer, Cart> {
     /**
      * 등록 & 가입 진행
      * argument : object
-     * return : null
      *
      * @param cart
      **/
@@ -28,26 +27,27 @@ public class CartService implements AespaService<Integer, Cart> {
 
     @Override
     public void register(Cart cart) throws Exception {
-
+        cartMapper.insert(cart);
     }
 
     @Override
-    public void remove(Integer integer) throws Exception {
-
+    public void remove(Integer product_id) throws Exception {
+        cartMapper.delete(product_id); // 상품번호별로 삭제하기.
     }
 
     @Override
     public void modify(Cart cart) throws Exception {
-
+        cartMapper.update(cart);
     }
 
     @Override
-    public Cart get(Integer integer) throws Exception {
-        return null;
+    public Cart get(Integer product_id) throws Exception {
+        return cartMapper.select(product_id);
     }
 
     @Override
     public List<Cart> get() throws Exception {
-        return null;
+        return cartMapper.selectall();
     }
+    // 추후에, 내가 담은 카트만 조회하는 함수 만들 예정.
 }
