@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
 
-
     // 0- 초기화면 : 127.0.0.1
     @RequestMapping("/")
     public String main(Model model) {
@@ -34,5 +33,11 @@ public class MainController {
         return "index";
     }
 
+    //
+    @RequestMapping("/register")
+    public String register(Model model){
+        model.addAttribute("center", "register"); // center에 login페이지 표출
+        return "index";
+    }
 
 }
