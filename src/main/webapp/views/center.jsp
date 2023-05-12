@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <!-- center 시작 구간 -->
@@ -12,7 +12,7 @@
         <div class="col-lg-8 text-left">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Earrings</p>
           <h4 style="color: whitesmoke" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5"> 시선을 사로잡는 방법<br>Aespa 이어링으로 모두에게 기분좋은 관심을 즐기세요.</h4><br>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">자세히보기</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="/shop/earring">자세히보기</a>
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
         <div class="col-lg-8 text-center">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Bracelets</p>
           <h4 style="color: whitesmoke" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">클래식한 실루엣과 디자인으로 상상력 그 너머의 세계<br>섬세한 스타일로 예측할 수 없는 매력을 연출하세요.</h4><br>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">자세히보기</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="/shop/bracelet">자세히보기</a>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
         <div class="col-lg-8 text-right">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Wathchs</p>
           <h4 style="color: whitesmoke" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">150여 년에 걸친 정밀성과 파인 주얼리 컬렉션으로 <br>하나뿐인 시계를 손목에서 경험해 보세요.</h4><br>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">자세히보기</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="/shop/watch">자세히보기</a>
         </div>
       </div>
     </div>
@@ -60,19 +60,19 @@
       <div class="col-md-6">
         <%--  중간 좌측 : 1번 이미지 --%>
         <div class="category-box">
-          <a href="#!">
+          <a href="/shop/gift">
             <img src="/img/center_wedding.jpg" alt="" />
             <div class="content">
-              <h3>Jewellery</h3>
+              <h3>Gifts</h3>
               <p>Shop New Season Clothing</p>
             </div>
           </a>
         </div>
         <div class="category-box">
-          <a href="#!">
+          <a href="/shop/casual">
             <img src="/img/center_earring.jpg" alt="" />
             <div class="content">
-              <h3 style="color : whitesmoke">Smart Casuals</h3>
+              <h3 style="color : whitesmoke">Casuals</h3>
               <p>Get Wide Range Selection</p>
             </div>
           </a>
@@ -80,7 +80,7 @@
       </div>
       <div class="col-md-6">
         <div class="category-box category-box-2">
-          <a href="#!">
+          <a href="/shop/wedding">
             <img src="/img/center_wedding2.jpg" alt="" />
             <div class="content">
               <h3>Wedding</h3>
@@ -101,277 +101,37 @@
       </div>
     </div>
     <div class="row">
+      <c:forEach  var="obj" items="${allproduct}" >
+      <div class="col-md-4">
 
-      <div class="col-md-4">
-        <div class="product-item">
-          <div class="product-thumb">
-            <span class="bage">Sale</span>
-            <img class="img-responsive" src="/images/shop/products/product-1.jpg" alt="product-img" />
-            <div class="preview-meta">
-              <ul>
-                <li>
+          <div class="product-item">
+            <div class="product-thumb">
+              <img class="img-responsive" src="/img/${obj.product_imgname}" alt="product-img" />
+              <div class="preview-meta">
+                <ul>
+                  <li>
 									<span  data-toggle="modal" data-target="#product-modal">
 										<i class="tf-ion-ios-search-strong"></i>
 									</span>
-                </li>
-                <li>
-                  <a href="#!" ><i class="tf-ion-ios-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="product-content">
-            <h4><a href="product-single.html">Reef Boardsport</a></h4>
-            <p class="price">$200</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="product-item">
-          <div class="product-thumb">
-            <img class="img-responsive" src="/images/shop/products/product-2.jpg" alt="product-img" />
-            <div class="preview-meta">
-              <ul>
-                <li>
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="tf-ion-ios-search-strong"></i>
-									</span>
-                </li>
-                <li>
-                  <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="product-content">
-            <h4><a href="product-single.html">Rainbow Shoes</a></h4>
-            <p class="price">$200</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="product-item">
-          <div class="product-thumb">
-            <img class="img-responsive" src="/images/shop/products/product-3.jpg" alt="product-img" />
-            <div class="preview-meta">
-              <ul>
-                <li>
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="tf-ion-ios-search-strong"></i>
-									</span>
-                </li>
-                <li>
-                  <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="product-content">
-            <h4><a href="product-single.html">Strayhorn SP</a></h4>
-            <p class="price">$230</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="product-item">
-          <div class="product-thumb">
-            <img class="img-responsive" src="/images/shop/products/product-4.jpg" alt="product-img" />
-            <div class="preview-meta">
-              <ul>
-                <li>
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="tf-ion-ios-search-strong"></i>
-									</span>
-                </li>
-                <li>
-                  <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="product-content">
-            <h4><a href="product-single.html">Bradley Mid</a></h4>
-            <p class="price">$200</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="product-item">
-          <div class="product-thumb">
-            <img class="img-responsive" src="/images/shop/products/product-5.jpg" alt="product-img" />
-            <div class="preview-meta">
-              <ul>
-                <li>
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="tf-ion-ios-search-strong"></i>
-									</span>
-                </li>
-                <li>
-                  <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="product-content">
-            <h4><a href="product-single.html">Rainbow Shoes</a></h4>
-            <p class="price">$200</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="product-item">
-          <div class="product-thumb">
-            <img class="img-responsive" src="/images/shop/products/product-6.jpg" alt="product-img" />
-            <div class="preview-meta">
-              <ul>
-                <li>
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="tf-ion-ios-search-strong"></i>
-									</span>
-                </li>
-                <li>
-                  <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="product-content">
-            <h4><a href="product-single.html">Rainbow Shoes</a></h4>
-            <p class="price">$200</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="product-item">
-          <div class="product-thumb">
-            <span class="bage">Sale</span>
-            <img class="img-responsive" src="/images/shop/products/product-7.jpg" alt="product-img" />
-            <div class="preview-meta">
-              <ul>
-                <li>
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="tf-ion-ios-search-strong"></i>
-									</span>
-                </li>
-                <li>
-                  <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="product-content">
-            <h4><a href="product-single.html">Rainbow Shoes</a></h4>
-            <p class="price">$200</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="product-item">
-          <div class="product-thumb">
-            <img class="img-responsive" src="/images/shop/products/product-8.jpg" alt="product-img" />
-            <div class="preview-meta">
-              <ul>
-                <li>
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="tf-ion-ios-search-strong"></i>
-									</span>
-                </li>
-                <li>
-                  <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="product-content">
-            <h4><a href="product-single.html">Rainbow Shoes</a></h4>
-            <p class="price">$200</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="product-item">
-          <div class="product-thumb">
-            <img class="img-responsive" src="/images/shop/products/product-9.jpg" alt="product-img" />
-            <div class="preview-meta">
-              <ul>
-                <li>
-									<span  data-toggle="modal" data-target="#product-modal">
-										<i class="tf-ion-ios-search-strong"></i>
-									</span>
-                </li>
-                <li>
-                  <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                </li>
-                <li>
-                  <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="product-content">
-            <h4><a href="product-single.html">Rainbow Shoes</a></h4>
-            <p class="price">$200</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Modal -->
-      <div class="modal product-modal fade" id="product-modal">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <i class="tf-ion-close"></i>
-        </button>
-        <div class="modal-dialog " role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                  <div class="modal-image">
-                    <img class="img-responsive" src="/images/shop/products/modal-product.jpg" alt="product-img" />
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                  <div class="product-short-details">
-                    <h2 class="product-title">GM Pendant, Basalt Grey</h2>
-                    <p class="product-price">$200</p>
-                    <p class="product-short-description">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
-                    </p>
-                    <a href="cart.html" class="btn btn-main">Add To Cart</a>
-                    <a href="product-single.html" class="btn btn-transparent">View Product Details</a>
-                  </div>
-                </div>
+                  </li>
+                  <li>
+                    <a href="#!" ><i class="tf-ion-ios-heart"></i></a>
+                  </li>
+                  <li>
+                    <a href="#!"><i class="tf-ion-android-cart"></i></a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
-        </div>
-      </div><!-- /.modal -->
+          <div class="product-content">
+            <h4><a href="product-single.html">${obj.product_name}</a></h4>
+            <p class="price"><fmt:formatNumber value="${obj.product_price}" type="number" pattern="₩ ###,###" /></p>
+          </div>
 
-    </div>
+      </div>
+      </c:forEach>
+    </div><%--  각각의 Product가 담긴 영역 끝.   --%>
   </div>
 </section>
 

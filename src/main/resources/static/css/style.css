@@ -875,6 +875,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 .hero-slider .slider-item .container .row {
   height: 100%;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
@@ -952,8 +953,10 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   position: relative;
 }
 .product-item .product-thumb img {
-  width: 100%;
-  height: auto;
+  width: 360px;
+  height: 360px;
+  /*width: 360px;*/
+  /*height: 430px;*/
 }
 .product-item .product-thumb .bage {
   position: absolute;

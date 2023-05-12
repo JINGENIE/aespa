@@ -205,24 +205,34 @@
                                 <!-- Basic -->
                                 <div class="col-lg-6 col-md-6 mb-sm-3">
                                     <ul>
-                                        <li class="dropdown-header">Pages</li>
+                                        <li class="dropdown-header">주얼리</li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="shop.html">Shop</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="pricing.html">Pricing</a></li>
-                                        <li><a href="confirmation.html">Confirmation</a></li>
+                                        <li><a href="/shop">한눈에보기</a></li>
+                                        <li><a href="/shop/earring">귀걸이</a></li>
+                                        <li><a href="/shop/ring">반지</a></li>
+                                        <li><a href="/shop/bracelet">팔찌</a></li>
+                                        <li><a href="/shop/necklace">목걸이</a></li>
+                                        <li><a href="/shop/watch">워치</a></li>
 
                                     </ul>
                                 </div>
+                                <!-- Basic -->
+                                <div class="col-lg-6 col-md-6 mb-sm-3">
+                                    <ul>
+                                        <li class="dropdown-header">모던 액세서리</li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="/shop/modern">한눈에보기</a></li>
 
+                                    </ul>
+                                </div>
                                 <!-- Layout -->
                                 <div class="col-lg-6 col-md-6 mb-sm-3">
                                     <ul>
-                                        <li class="dropdown-header">Layout</li>
+                                        <li class="dropdown-header">카테고리</li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="product-single.html">Product Details</a></li>
-                                        <li><a href="shop-sidebar.html">Shop With Sidebar</a></li>
+                                        <li><a href="/shop/gift">기프트</a></li>
+                                        <li><a href="/shop/casual">캐쥬얼</a></li>
+                                        <li><a href="/shop/wedding">웨딩</a></li>
 
                                     </ul>
                                 </div>
@@ -241,12 +251,12 @@
                     <!-- Shop -->
                     <li class="dropdown dropdown-slide">
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                           role="button" aria-haspopup="true" aria-expanded="false">Elements <span
+                           role="button" aria-haspopup="true" aria-expanded="false">Service <span
                                 class="tf-ion-ios-arrow-down"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="typography.html">Typography</a></li>
-                            <li><a href="buttons.html">Buttons</a></li>
-                            <li><a href="alerts.html">Alerts</a></li>
+                            <li><a href="typography.html">Store</a></li>
+                            <li><a href="buttons.html">Repair</a></li>
+                            <li><a href="alerts.html">Contect</a></li>
                         </ul>
                     </li><!-- / Blog -->
                 </ul><!-- / .nav .navbar-nav -->

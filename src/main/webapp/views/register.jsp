@@ -114,8 +114,8 @@
               <button type="submit" class="btn btn-main text-center" id="register_btn" name="register_btn">register</button>
             </div>
           </form>
-          <p class="mt-20">Already hava an account ?<a href="login.html"> Login</a></p>
-          <p><a href="forget-password.html"> Forgot your password?</a></p>
+          <p class="mt-20">회원가입을 한 적이 있으신가요 ?<a href="/login"> Login</a></p>
+          <p><a href="forget-password.html"> 비밀번호를 잊어버리셨나요?</a></p>
         </div>
       </div>
     </div>

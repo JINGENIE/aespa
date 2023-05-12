@@ -45,5 +45,41 @@ public class ProductService implements AespaService<Integer, Product> {
     public List<Product> get() throws Exception {
         return productMapper.selectall();
     }
-    // 추후에 하단에, 카테고리별로 상품 조회하는 함수 만들 예정.
+
+    // 이어링 조회하기
+    public List<Product> selecterg() throws Exception {
+        return productMapper.selecterg();
+    }
+    // 링 조회하기
+    public List<Product> selectring() throws Exception {
+        return productMapper.selectring();
+    }
+    // 팔찌 조회하기
+    public List<Product> selectbracelet() throws Exception {
+        return productMapper.selectbracelet();
+    }
+    // 목걸이 조회하기
+    public List<Product> selectnecklace() throws Exception {
+        return productMapper.selectnecklace();
+    }
+    // 워치 조회하기
+    public List<Product> selectwch() throws Exception {
+        return productMapper.selectwch();
+    }
+    // 그외 모던제품 조회하기
+    public List<Product> selectmodern() throws Exception {
+        return productMapper.selectmodern();
+    }
+    // 카테고리별 조회하기 1. 캐쥬얼
+    public List<Product> selectcasual() throws Exception {
+        return productMapper.selectcasual();
+    }
+    // 카테고리별 조회하기 1. 캐쥬얼
+    public List<Product> selectgift() throws Exception {
+        return productMapper.selectgift();
+    }
+    // 카테고리별 조회하기 1. 캐쥬얼
+    public List<Product> selectwedding() throws Exception {
+        return productMapper.selectwedding();
+    }
 }
