@@ -3,7 +3,6 @@ package com.kbstar.dto;
 import lombok.*;
 
 import java.util.Date;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
