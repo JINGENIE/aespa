@@ -26,13 +26,18 @@
         $.ajax({
           url:'/checkid',
           data:{'id':txt_id},
-          success:function(result){
-            if(result == 0){
-              $('#check_id').text('사용가능합니다.');
-              $('#user_pwd').focus();
-            }else{
-              $('#check_id').text('사용불가능합니다.');
+          dataType:'json',
+          type:'POST',
+          success:function(data){
+            if(data.result == true){
+              $('#id_check').html('<i class="fa fa-check" aria-hidden="true"></i> 사용 가능한 아이디입니다.').css('color', 'green');
             }
+            else{
+              $('#id_check').html('<i class="fa fa-times" aria-hidden="true"></i> 중복된 아이디입니다.').css('color', 'red');
+            }
+          },
+          error:function(err){
+            console.log(err);
           }
         });
       });
@@ -41,85 +46,77 @@
       let id = $('#user_id').val();
       let pwd = $('#user_pwd').val();
       let name = $('#user_name').val();
-      let gender =$('#user_gender').val();
-      if(id.length <= 3){
-        $('#check_id').text('4자리 이상이어야 합니다.');
-        $('#user_id').focus();
-        return;
-      }
-
-      if(user_pwd == ''){
-        $('#user_pwd').focus();
-        return;
-      }
-      if(user_name == ''){
-        $('#user_name').focus();
-        return;
-      }
-
-      $('#register_form').attr({
-        'action':'/registerimpl',
-        'method':'post'
+      let gender = $('#user_gender').val();
+      $.ajax({
+        url:'/register',
+        data:{'id':id, 'pwd':pwd, 'name':name, 'gender':gender},
+        dataType:'json',
+        type:'POST',
+        success:function(data){
+          if(data.result == true){
+            alert('회원가입이 완료되었습니다.');
+            location.href = '/';
+          }
+          else{
+            alert('회원가입에 실패하였습니다.');
+          }
+        },
+        error:function(err){
+          console.log(err);
+        }
       });
-      $('#register_form').submit();
     }
   };
-
   $(function(){
     register_form.init();
   });
 </script>
-<section class="register-page account">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="block text-center">
-          <a class="logo" href="index.html">
-            <img src="images/logo.png" alt="" width="100px">
-          </a>
-          <h2 class="text-center">회원가입</h2>
-          <form class="text-left clearfix" action="index.html" method="post">
-            <div class="form-group">
-              <input type="text" class="form-control" name="user_id" placeholder="아이디를 입력하세요">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control"  name="user_pwd"   placeholder="비밀번호를 입력하세요">
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="user_name" placeholder="이름을 입력하세요">
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control" name="user_email" placeholder="Email을 입력하세요">
-            </div>
-            <div class="form-group">
-              성별 : <select name ="gender" >
-              <option value = "male" name = "male">남자</option>
-              <option value = "female" name = "female">여자</option>
 
-            </select>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <form class="form-horizontal">
+        <fieldset>
+          <legend>회원가입</legend>
+          <div class="form-group">
+            <label for="user_id" class="col-lg-2 control-label">아이디</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="user_id" placeholder="아이디를 입력하세요." required>
+              <span id="id_check"></span>
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="user_contact" placeholder="전화번호를 입력하세요">
+          </div>
+          <div class="form-group">
+            <label for="user_pwd" class="col-lg-2 control-label">비밀번호</label>
+            <div class="col-lg-10">
+              <input type="password" class="form-control" id="user_pwd" placeholder="비밀번호를 입력하세요." required>
             </div>
-            <div class="form-group">
-              <!--카카오 주소로 입력하기 -->
-              <input type="text" class="form-control"  name="user_address"   placeholder="주소를 입력하세요">
+          </div>
+          <div class="form-group">
+            <label for="user_name" class="col-lg-2 control-label">이름</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="user_name" placeholder="이름을 입력하세요." required>
             </div>
-            <div class="form-group">
-              <!--생년월일입력하기 -->
-              <input type="date" class="form-control"  name="user_birthday"  >
+          </div>
+          <div class="form-group">
+            <label for="user_gender" class="col-lg-2 control-label">성별</label>
+            <div class="col-lg-10">
+              <select class="form-control" id="user_gender" required>
+                <option value="" disabled selected>성별을 선택하세요.</option>
+                <option value="male">남성</option>
+                <option value="female">여성</option>
+              </select>
             </div>
-
-            <div class="text-center">
-              <button type="submit" class="btn btn-main text-center" id="register_btn" name="register_btn">register</button>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <button type="button" id="register_btn" class="btn btn-primary">회원가입</button>
             </div>
-          </form>
-          <p class="mt-20">회원가입을 한 적이 있으신가요 ?<a href="/login"> Login</a></p>
-          <p><a href="forget-password.html"> 비밀번호를 잊어버리셨나요?</a></p>
-        </div>
-      </div>
+          </div>
+        </fieldset>
+      </form>
     </div>
   </div>
-</section>
 
-<%--@@include('footer.htm')--%>
+
+
+
