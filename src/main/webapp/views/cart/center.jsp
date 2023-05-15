@@ -12,7 +12,7 @@
           <h1 class="page-name">Cart</h1>
           <ol class="breadcrumb">
             <li><a href="/">Home</a></li>
-            <li class="active"><a href="/cart">cart</a></li>
+            <li class="active"><a href="/cart?user_id=${loginuser.user_id}" >cart</a></li>
           </ol>
         </div>
       </div>
@@ -29,9 +29,9 @@
             <%-- 기존규격 :  <div class="col-md-8 col-md-offset-2">--%>
               <div class="block">
                 <div class="product-list">
-                  <form id="cart_form" method="post">
+                  <form id="cart_form" >
                     <table class="table">
-                      <colgroup>
+                      <colgroup >
                         <col width="20%" />
                         <col width="20%" />
                         <col width="10%" />
@@ -54,7 +54,7 @@
                           <tr class="">
                             <td class="">
                               <div class="product-info">
-                                <a href="#!"><img width="80" src="/simg/${obj.product_imgname}" alt="" /></a>
+                                <a href="#!"><img width="130" src="/img/${obj.product_imgname}" alt="" /></a>
                               </div>
                             </td>
                             <td><a href="#!">${obj.product_name}</a></td>

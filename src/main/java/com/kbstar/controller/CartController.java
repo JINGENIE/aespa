@@ -32,12 +32,13 @@ public class CartController {
     String dir = "cart/";
 
 
-    // 1- 기본페이지 :상품 전체조회(한눈에보기 화면) : 127.0.0.1/cart?id=${user_id}
+    // 1- cart 기본페이지 : 로그인한 고객이 담은 상품 전체조회
+    // 127.0.0.1/cart?user_id=${loginuser.user_id} ** session에 로그인정보 담으면, url바꿀 것. **
     @RequestMapping("")
-    public String main(Model model, String id) throws Exception {
+    public String main(Model model, String user_id) throws Exception {
         List<Cart> list = null; // 카트 정보 불러올 바구니 준비.
         try {
-            list = cartService.getmycart( id ); // 카트 정보를 list에 담기.
+            list = cartService.getmycart( user_id ); // 카트 정보를 list에 담기.
         } catch (Exception e) {
             throw new Exception(e);
         }

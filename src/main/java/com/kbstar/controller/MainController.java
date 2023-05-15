@@ -2,7 +2,9 @@ package com.kbstar.controller;
 
 
 import com.kbstar.dto.Product;
+import com.kbstar.dto.User;
 import com.kbstar.service.ProductService;
+import com.kbstar.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,8 @@ import java.util.List;
 public class MainController {
     @Autowired
     ProductService productService;
+    @Autowired
+    UserService userService;
 
     // 0- 초기화면 : 127.0.0.1
     @RequestMapping("/")
@@ -39,10 +43,13 @@ public class MainController {
     }
     // 1-2 로그인 검증 기능 : 127.0.0.1/loginimpl
     @RequestMapping("/loginimpl")
-    public String loginimpl(Model model,  HttpSession session){
+    public String loginimpl(Model model, String id, HttpSession session) throws Exception {
       //  model.addAttribute("center", "login"); // center에 login페이지 표출
+        User user = null; // 받을 준비하기
+        user = userService.get(id); // DB에 저장되어있는 로그인 정보 가져오기.
         if(session != null){
-            session.invalidate();
+            session.setMaxInactiveInterval(1000000); // 임시저장시간
+            session.setAttribute("loginuser", user);  // 로그인정보는 session에 loginuser 이름으로 임시저장.
         }
         return "redirect:/";
     }
