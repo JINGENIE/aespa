@@ -67,9 +67,12 @@
                             </td>
                           </tr>
                       </c:forEach>
+
                       </tbody>
                     </table>
+                    <a href="/shop" class="btn btn-main pull-center">다른상품 보러가기</a>
                     <a href="/order" class="btn btn-main pull-right">주문하기</a>
+                    <%-- 주문할 항목만 선택할 수 있게 체크박스 넣어보기. --%>
                   </form>
                 </div>
               </div>

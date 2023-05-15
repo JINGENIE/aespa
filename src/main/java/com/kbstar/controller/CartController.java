@@ -47,6 +47,7 @@ public class CartController {
         model.addAttribute("mycart", list);
         // center에 cart 페이지 표출
         model.addAttribute("center", dir + "center");
+
         return "index";
     }
 
@@ -70,4 +71,10 @@ public class CartController {
         }
 
     }
+
+    // cart 페이지로 product 추가하기. -> 본 컨트롤러가 아닌, AjaximplController에서 처리한다.
+    // 이유 : 장바구니에 카트 담고, 다른 페이지 이동이 아니라- 본 페이지에 남아있게 하기 위함.
+    // 127.0.0.1/cart/addcart
+
+
 }

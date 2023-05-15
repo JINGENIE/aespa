@@ -23,7 +23,7 @@ public class Cart { // 6개의 칼럼
                 this.cart_date = cart_date;
         }
 
-        // 참고. 추후에 나의 장바구니 조회할 때 보여줄 상품들을 위해, 아래와 같이 추가.
+        // 나의 장바구니 조회할 때 보여줄 상품들을 위해,
         // Product 테이블과 join을 통해
         // product_name / product_imgname / product_price 를 가져와서 보여줄 예정~
         private String product_name;

@@ -36,7 +36,7 @@
             <div class="preview-meta">
               <ul>
                 <li>
-									<span  data-toggle="modal" data-target="#product-modal">
+									<span  data-toggle="modal" data-target="#product-modal${obj.product_id}">
 										<i class="tf-ion-ios-search-strong"></i>
 									</span>
                 </li>
@@ -59,7 +59,8 @@
       </c:forEach>
       </div><%--  각각의 Product가 담긴 영역 끝.   --%>
       <!-- Modal -->
-        <div class="modal product-modal fade" id="product-modal">
+      <c:forEach  var="obj" items="${allring}" >
+        <div class="modal product-modal fade" id="product-modal${obj.product_id}">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <i class="tf-ion-close"></i>
         </button>
@@ -69,13 +70,13 @@
               <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
                   <div class="modal-image">
-                    <img class="img-responsive" src="images/shop/products/modal-product.jpg" alt="product-img" />
+                    <img class="img-responsive" src="/img/${obj.product_imgname}" alt="product-img" />
                   </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="product-short-details">
-                    <h2 class="product-title">GM Pendant, Basalt Grey</h2>
-                    <p class="product-price">$200</p>
+                    <h2 class="product-title">${obj.product_name}</h2>
+                    <p class="product-price"><fmt:formatNumber value="${obj.product_price}" type="number" pattern="₩ ###,###" /></p>
                     <p class="product-short-description">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
                     </p>
@@ -88,7 +89,7 @@
           </div>
         </div>
       </div><!-- /.modal -->
-
+      </c:forEach>
     </div>
 
 </section>

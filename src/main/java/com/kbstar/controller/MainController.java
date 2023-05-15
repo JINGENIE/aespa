@@ -47,12 +47,18 @@ public class MainController {
     }
     // 1-2 로그인 검증 기능 : 127.0.0.1/loginimpl
     @RequestMapping("/loginimpl")
-    public String loginimpl(Model model,  HttpSession session){
-      //  model.addAttribute("center", "login"); // center에 login페이지 표출
-        if(session != null){
-            session.invalidate();
+    public String loginimpl(Model model, String id, HttpSession session) throws Exception {
+        User user = null; // 로그인 고객정보 받을 준비하기
+        try {
+            user = userService.get(id); // DB에 저장되어있는 회원 정보랑 일치하는지 가져오기.
+            // 기능 : session 에 넣어주면, 00초 동안 로그인 유지 가능.**
+            // session에 담은 정보도, jsp에서 loginuser 라는 이름으로 정보 끄집어내기 가능하다.
+            session.setMaxInactiveInterval(1000000);
+            session.setAttribute("loginuser", user); // 성공한 로그인정보는 seesion에 집어넣어주기.
+        } catch (Exception e) {
+            throw new Exception("시스템 장애로 인해 로그인이 실패했습니다. 잠시후 재거래 바랍니다. ");
         }
-        return "redirect:/";
+        return "index";
     }
 
     //

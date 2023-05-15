@@ -32,6 +32,6 @@
                     VALUES (#{user_id}, #{product_id}, #{cart_quantity}, SYSDATE)
             WHEN MATCHED THEN
                 UPDATE SET
-                    cart_quantity = cart_quantity+ #{cart_quantity}
+                    cart_quantity = cart_quantity + #{cart_quantity}
     </insert>
 </mapper>

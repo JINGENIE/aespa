@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
 <!DOCTYPE html>
 
 <!--
@@ -54,6 +53,8 @@
 
     <!-- 제이쿼리 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <%-- 부트스트랩 --%>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
 <body id="body">
@@ -93,38 +94,41 @@
                     <li class="dropdown cart-nav dropdown-slide">
                         <!-- 카트 선택 시 로그인한 고객이 담은 본인의 카트 정보조회 연동 -->
                         <a href="/cart?user_id=${loginuser.user_id}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                class="tf-ion-android-cart"></i>Cart</a>
+                                class="tf-ion-android-cart"></i> Cart</a>
                         <div class="dropdown-menu cart-dropdown">
-                            <!-- Cart Item -->
+                            <!-- 로그인 한 고객의 Cart Item 을 드롭다운 하기 -->
+                            <c:forEach var="obj" items="${mycart}">
                             <div class="media">
                                 <a class="pull-left" href="#!">
-                                    <img class="media-object" src="/images/shop/cart/cart-1.jpg" alt="image" />
+                                    <img class="media-object" src="/img/${obj.product_imgname}" alt="image" />
                                 </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
+                                    <h4 class="media-heading"><a href="#!">${obj.product_name}</a></h4>
                                     <div class="cart-price">
-                                        <span>1 x</span>
-                                        <span>1250.00</span>
+                                        <span>${obj.cart_quantity}</span>
+                                        <span>${obj.product_price}</span>
                                     </div>
-                                    <h5><strong>$1200</strong></h5>
+                                    <h5><strong>${obj.product_price}</strong></h5>
+                                    <p>Product ID: ${obj.product_id}</p> <!-- 추가 -->
                                 </div>
                                 <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                            </div><!-- / Cart Item -->
+                            </div>
+                            </c:forEach><!-- / Cart Item -->
                             <!-- Cart Item -->
-                            <div class="media">
-                                <a class="pull-left" href="#!">
-                                    <img class="media-object" src="/images/shop/cart/cart-2.jpg" alt="image" />
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                    <div class="cart-price">
-                                        <span>1 x</span>
-                                        <span>1250.00</span>
-                                    </div>
-                                    <h5><strong>$1200</strong></h5>
-                                </div>
-                                <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                            </div><!-- / Cart Item -->
+<%--                            <div class="media">--%>
+<%--                                <a class="pull-left" href="#!">--%>
+<%--                                    <img class="media-object" src="/images/shop/cart/cart-2.jpg" alt="image" />--%>
+<%--                                </a>--%>
+<%--                                <div class="media-body">--%>
+<%--                                    <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>--%>
+<%--                                    <div class="cart-price">--%>
+<%--                                        <span>1 x</span>--%>
+<%--                                        <span>1250.00</span>--%>
+<%--                                    </div>--%>
+<%--                                    <h5><strong>$1200</strong></h5>--%>
+<%--                                </div>--%>
+<%--                                <a href="#!" class="remove"><i class="tf-ion-close"></i></a>--%>
+<%--                            </div><!-- / Cart Item -->--%>
 
                             <div class="cart-summary">
                                 <span>Total</span>
@@ -139,15 +143,22 @@
                     </li><!-- / Cart -->
                     <!-- Mypage -->
                     <li class="dropdown dropdown-slide">
-                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                           role="button" aria-haspopup="true" aria-expanded="false">Mypage <span
+                        <!-- 미로그인 고객 : 로그인하기 화면 보여주기 | 로그인 고객 : 내정보 수정 & 로그아웃 화면 보여주기 -->
+                        <c:choose>
+                        <c:when test="${loginuser == null}">
+                        <a href="/login" class="dropdown-toggle" data-toggle="" data-hover="dropdown" data-delay="350"
+                           role="button" aria-haspopup="true" aria-expanded="false"><span class="tf-ion-android-person"></span> Login</a><!-- Main Controller -->
+                        </c:when>
+                        <c:otherwise>
+                        <a href="/profile?id=${loginuser.user_id}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                           role="button" aria-haspopup="true" aria-expanded="false"><span class="tf-ion-android-person"></span> ${loginuser.user_id} <span
                                 class="tf-ion-ios-arrow-down"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/login">Login Page</a></li><!-- Main Controller -->
-                            <li><a href="/profile">My Profile</a></li>
-                            <li><a href="logout">Logout</a></li><!-- Main Controller -->
-
+                            <li><a href="/profile"> 내정보 수정</a></li>
+                            <li><a href="/logout"> Logout</a></li><!-- Main Controller -->
                         </ul>
+                        </c:otherwise>
+                        </c:choose>
                     </li><!-- / Mypage -->
 
                     <!-- Search -->

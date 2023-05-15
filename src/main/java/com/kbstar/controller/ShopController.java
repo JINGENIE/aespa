@@ -27,13 +27,17 @@ public class ShopController {
     String dir = "shop/";
 
 
-    // 1- 기본페이지 :상품 전체조회(한눈에보기 화면) : 127.0.0.1/shop
+    // 1-1 기본페이지 :상품 전체조회(한눈에보기 화면) : 127.0.0.1/shop
+    // 1-2. 각 상품에 대한 상세조회는 별도 페이지 x. 전체조회 페이지에서 모달창 활용.
     @RequestMapping("")
     public String main(Model model) throws Exception {
         // selectAll 사용
         List<Product> list = null;
+
         try {
             list = productService.get();
+
+
         } catch (Exception e) {
             throw new Exception("/shop 상품 전체조회 중 오류가 발생했습니다.");
         }
@@ -43,6 +47,7 @@ public class ShopController {
         model.addAttribute("center", dir + "center");
         return "index";
     }
+
     // 2- 이어링 상품 전체보기 : 127.0.0.1/shop/earring
     @RequestMapping("/earring")
     public String earring(Model model) throws Exception {

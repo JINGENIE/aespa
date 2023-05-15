@@ -110,7 +110,7 @@
               <div class="preview-meta">
                 <ul>
                   <li>
-									<span  data-toggle="modal" data-target="#product-modal">
+									<span  data-toggle="modal" data-target="#product-modal${obj.product_id}">
 										<i class="tf-ion-ios-search-strong"></i>
 									</span>
                   </li>
@@ -132,6 +132,40 @@
       </div>
       </c:forEach>
     </div><%--  각각의 Product가 담긴 영역 끝.   --%>
+    <!-- Modal창 팝업을 통한 상품 상세보기 forEach 한번 더! -->
+    <c:forEach  var="obj" items="${allproduct}" >
+      <div class="modal product-modal fade" id="product-modal${obj.product_id}"><%-- 위에서 선언한 #product-modal 와 똑같이 써야 해당 제품의 상세정보  --%>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <i class="tf-ion-close"></i>
+        </button>
+        <div class="modal-dialog " role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="row">
+
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                  <div class="modal-image">
+                    <img class="img-responsive" src="/img/${obj.product_imgname}" alt="product-img" />
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <div class="product-short-details">
+                    <h2 class="product-title">${obj.product_name}</h2>
+                    <p class="product-price"><fmt:formatNumber value="${obj.product_price}" type="number" pattern="₩ ###,###" /></p>
+                    <p class="product-short-description">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
+                    </p>
+                    <a href="/cart?user_id=${loginuser.user_id}" class="btn btn-main">장바구니에 담기</a>
+                    <a href="product-single.html" class="btn btn-transparent">View Product Details</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.modal -->
+    </c:forEach>
   </div>
 </section>
 
