@@ -25,7 +25,7 @@ public class MainController {
     public String main(Model model) throws Exception {
         // selectAll 사용
         List<Product> list = null;
-            list = productService.get();
+        list = productService.get();
 
         // list에 담은 Product를 브라우저 화면에 보여주기(jsp파일에 입력 시 명칭 allproduct)
         model.addAttribute("allproduct", list);
@@ -40,7 +40,7 @@ public class MainController {
     // 1-2 로그인 검증 기능 : 127.0.0.1/loginimpl
     @RequestMapping("/loginimpl")
     public String loginimpl(Model model,  HttpSession session){
-      //  model.addAttribute("center", "login"); // center에 login페이지 표출
+        //  model.addAttribute("center", "login"); // center에 login페이지 표출
         if(session != null){
             session.invalidate();
         }
