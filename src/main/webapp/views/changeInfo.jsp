@@ -78,8 +78,8 @@
       }
 
       $.ajax({
-          url: "/checkUserId",
-          type: "GET",
+          url: "/checkuserid",
+          type: "POST",
           data: { user_id: userId },
           success: function (result) {
               if (result == "success") {
@@ -101,19 +101,12 @@
       <form id = "register_form" class="form-horizontal">
         <fieldset>
           <legend>회원가입</legend>
-            <div class="form-group">
-                <label for="user_id" class="col-lg-2 control-label">아이디</label>
-                <div class="col-lg-8">
-                    <input type="text" class="form-control" id="user_id" name="user_id" placeholder="아이디를 입력하세요." required>
-                </div>
-                <div class="col-lg-2">
-                    <button onclick="checkUserId()" >중복체크</button>
-                </div>
-                <div class="col-lg-10 col-lg-offset-2">
-                    <div id="result"></div>
-                    <span id="user_id_error" class="error"></span>
-                </div>
+          <div class="form-group">
+            <label for="user_id" class="col-lg-2 control-label">아이디</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="user_id" name="user_id" value="${loginuser.user_id}" readonly>
             </div>
+          </div>
           <div class="form-group">
             <label for="user_pwd" class="col-lg-2 control-label">비밀번호</label>
             <div class="col-lg-10">
@@ -161,7 +154,7 @@
           </div>
           <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-              <button type="button" id="register_btn" class="btn btn-primary">회원가입</button>
+              <button type="button" id="register_btn" class="btn btn-primary">정보변경하기</button>
             </div>
           </div>
         </fieldset>
@@ -169,19 +162,6 @@
     </div>
   </div>
 
-<style>
-    button {
-        background-color: #79c5b5; /* 티파니앤코 민트색 */
-        color: #fff;
-        border: none; /* 테두리 제거 */
-        font-size: 6px;
-        border-radius: 5px; /* 버튼 라운드 처리 */
-        height: 40px;
-        width: 70px;
-        cursor: pointer;
-    }
 
-
-</style>
 
 

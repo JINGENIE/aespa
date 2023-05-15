@@ -27,4 +27,6 @@
     <delete id="delete" parameterType="String">
         DELETE FROM shopuser WHERE user_id=#{user_id}
     </delete>
+
+
         </mapper>
