@@ -17,9 +17,11 @@ public class UpdateTest {
     @Test
     void contextLoads() {
         try {
-            service.modify(new User("id01", "pwd01", "ㅇ", "ㅇ", "ㅇ","0",
-                    new SimpleDateFormat("yyyy-MM-dd").parse("1990-01-01"), "0"));
-            service.get("id01");
+            User obj = new User("tiffanylover", "jinleerename","f", "pwd01",
+                    "01033769412", "seoul, seoundong, alphaco 101","1994-12-28");
+            service.modify(obj);
+
+            service.get("tiffanylover");
         } catch (Exception e) {
             log.info("오류");
         }

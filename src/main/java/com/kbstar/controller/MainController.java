@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
@@ -38,9 +39,12 @@ public class MainController {
     }
     // 1-2 로그인 검증 기능 : 127.0.0.1/loginimpl
     @RequestMapping("/loginimpl")
-    public String loginimpl(Model model){
-        //model.addAttribute("center", "login"); // center에 login페이지 표출
-        return "index";
+    public String loginimpl(Model model,  HttpSession session){
+      //  model.addAttribute("center", "login"); // center에 login페이지 표출
+        if(session != null){
+            session.invalidate();
+        }
+        return "redirect:/";
     }
 
     //

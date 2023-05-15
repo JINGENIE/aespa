@@ -1,6 +1,7 @@
 <%--@@include('header.htm')--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   let register_form = {
     init:function(){
@@ -47,9 +48,16 @@
       let pwd = $('#user_pwd').val();
       let name = $('#user_name').val();
       let gender = $('#user_gender').val();
+      let birthday = $('#user_birthday').val();
+      let address = $('#user_address').val();
       $.ajax({
         url:'/register',
-        data:{'id':id, 'pwd':pwd, 'name':name, 'gender':gender},
+        data:{'user_id':id,
+              'user_pwd':pwd,
+              'user_name':name,
+              'user_gender':gender,
+              'user_birthday':birthday,
+              'user_address':address },
         dataType:'json',
         type:'POST',
         success:function(data){
@@ -82,7 +90,9 @@
             <label for="user_id" class="col-lg-2 control-label">아이디</label>
             <div class="col-lg-10">
               <input type="text" class="form-control" id="user_id" placeholder="아이디를 입력하세요." required>
-              <span id="id_check"></span>
+            </div>
+            <div class="col-sm-10">
+              <span id="check_id" class="bg-danger"></span>
             </div>
           </div>
           <div class="form-group">
@@ -97,6 +107,26 @@
               <input type="text" class="form-control" id="user_name" placeholder="이름을 입력하세요." required>
             </div>
           </div>
+
+          <div class="form-group">
+            <label for="user_contact" class="col-lg-2 control-label">전화번호</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="user_contact" placeholder="전화번호를 입력하세요." required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="user_address" class="col-lg-2 control-label">주소</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="user_address" placeholder="주소를 입력하세요." required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="user_birthday" class="col-lg-2 control-label">생년월일</label>
+            <div class="col-lg-10">
+              <input type="date" id="user_birthday" name="userBirth"/>
+            </div>
+          </div>
+
           <div class="form-group">
             <label for="user_gender" class="col-lg-2 control-label">성별</label>
             <div class="col-lg-10">
