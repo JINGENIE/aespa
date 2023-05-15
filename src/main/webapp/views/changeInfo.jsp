@@ -104,10 +104,8 @@
           <div class="form-group">
             <label for="user_id" class="col-lg-2 control-label">아이디</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="user_id" name="user_id" placeholder="아이디를 입력하세요." required>
+              <input type="text" class="form-control" id="user_id" name="user_id" value="${loginuser.user_id}" readonly>
             </div>
-              <button onclick="checkUserId()">중복 체크</button>
-              <div id="result"></div>
           </div>
           <div class="form-group">
             <label for="user_pwd" class="col-lg-2 control-label">비밀번호</label>
@@ -156,7 +154,7 @@
           </div>
           <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-              <button type="button" id="register_btn" class="btn btn-primary">회원가입</button>
+              <button type="button" id="register_btn" class="btn btn-primary">정보변경하기</button>
             </div>
           </div>
         </fieldset>

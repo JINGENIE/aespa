@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<script><%-- 로그인 검증 기능 --%>
-    $(function (){
+<script>
+  $(function () {
     login_form.init();
-     });
+  })
 </script>
 
 <section class="signin-page account">
@@ -20,10 +20,10 @@
           <form id="login_form" class="text-left clearfix" ><%-- Main Controller --%>
           <%-- form : button type="button" --%>
             <div class="form-group">
-              <input type="text" class="form-control"  placeholder="ID" name="id" id="id" placeholder="ID를 입력해 주세요"/>
+              <input type="text" class="form-control"  placeholder="ID" name="user_id" id="user_id" placeholder="ID를 입력해 주세요"/>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" name="pwd"  id="pwd" placeholder="Password를 입력해 주세요"/>
+              <input type="password" class="form-control" name="user_pwd"  id="user_pwd" placeholder="Password를 입력해 주세요"/>
             </div>
             <div class="text-center">
               <button type="button" id="login_btn" class="btn btn-main text-center" >Login</button>

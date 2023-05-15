@@ -6,7 +6,9 @@ import com.kbstar.dto.User;
 import com.kbstar.service.ProductService;
 import com.kbstar.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,8 @@ import javax.swing.text.html.HTMLDocument;
 import java.util.List;
 
 
+
+
 @Slf4j
 @Controller
 public class MainController {
@@ -27,7 +31,7 @@ public class MainController {
     ProductService productService;
     @Autowired
     UserService userService;
-
+    Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
     String dir = "shop/";
     // 0- 초기화면 : 127.0.0.1
     @RequestMapping("/")
@@ -46,16 +50,30 @@ public class MainController {
         model.addAttribute("center", "login"); // center에 login페이지 표출
         return "index";
     }
-    // 1-2 로그인 검증 기능 : 127.0.0.1/loginimpl
-    @RequestMapping("/loginimpl")
-    public String loginimpl(Model model,  HttpSession session){
-      //  model.addAttribute("center", "login"); // center에 login페이지 표출
-        if(session != null){
-            session.invalidate();
-        }
-        return "redirect:/";
-    }
 
+
+// 1-2 로그인 검증 기능 : 127.0.0.1/loginimpl
+    @RequestMapping("/loginimpl")
+    public String loginimpl(Model model, String user_id, String user_pwd, HttpSession session) throws Exception {
+        User user = null;
+        String nextPage = "loginfail";
+
+        try {
+            user = userService.get(user_id);
+            logger.info(user_id);
+
+            if (user != null && user_pwd.equals(user.getUser_pwd())) {
+                model.addAttribute("center", dir + "center");
+               session.setMaxInactiveInterval(10000);
+                session.setAttribute("loginuser", user);
+            }
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            model.addAttribute("center", nextPage);
+
+        }
+        return "index";
+    }
     //
     @RequestMapping("/register")
     public String register(Model model){
@@ -75,7 +93,7 @@ public class MainController {
         }
         try {
             userService.register(user);
-            session.setAttribute("logincust",user);
+            session.setAttribute("loginuser",user);
         } catch (Exception e) {
             throw new Exception("가입 오류");
         }
@@ -84,17 +102,21 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/profile")
-    public String profile(Model model, HttpSession session, User user) throws Exception {
-        List<User>list =null;
-//        if(session == null) {
-//       // session.setAttribute("loginuser", "loginuser");
-//        return "/login";
-//        }
+//    @RequestMapping("/profile")
+//    public String profile(Model model, HttpSession session, User user) throws Exception {
+//        List<User>list =null;
+//        list = (List<User>) userService.get(user.getUser_id());
+//        model.addAttribute("user",list);
+//        model.addAttribute("center", "profile"); // center에 login페이지 표출
+//        return "index";
+//    }
 
-        list = (List<User>) userService.get(user.getUser_id());
-        model.addAttribute("myuser",list);
-        model.addAttribute("center", "profile"); // center에 login페이지 표출
+    @RequestMapping("/profile")
+    public String profile(Model model, HttpSession session) throws Exception {
+        User user = (User) session.getAttribute("loginuser");
+        User profileUser = userService.get(user.getUser_id());
+        model.addAttribute("user", profileUser);
+        model.addAttribute("center", "profile");
         return "index";
     }
 }
