@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DuplicateKeyException;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Slf4j
 @SpringBootTest
 public class InsertTest {
@@ -17,9 +20,9 @@ public class InsertTest {
     UserService service;
     @Test
     void contextLoads() throws ParseException {
-        User obj = new User("tiffanylover", "pwd01", "j",
-                "female", "01033769412","seoul, seoundong, alphaco 101" ,
-                new SimpleDateFormat("yyyy-MM-dd").parse("1990-01-01"), null);
+
+        User obj = new User("tiffanylover", "jin","f", "pwd01",
+                "01033769412", "seoul, seoundong, alphaco 101","1994-12-28");
         try {
             service.register(obj);
             log.info("등록 정상");
