@@ -2,12 +2,17 @@ package com.kbstar.controller;
 
 
 import com.kbstar.dto.Product;
+import com.kbstar.dto.User;
 import com.kbstar.service.ProductService;
+import com.kbstar.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
@@ -19,7 +24,10 @@ import java.util.List;
 public class MainController {
     @Autowired
     ProductService productService;
+    @Autowired
+    UserService userService;
 
+    String dir = "shop/";
     // 0- 초기화면 : 127.0.0.1
     @RequestMapping("/")
     public String main(Model model) throws Exception {
@@ -53,5 +61,25 @@ public class MainController {
         model.addAttribute("center", "register"); // center에 login페이지 표출
         return "index";
     }
-
+    @RequestMapping("/registerimpl")
+    public String registerimpl(Model model,
+                               @Validated User user, Errors errors, HttpSession session) throws Exception {
+        if(errors.hasErrors()){
+            List<ObjectError> ex = errors.getAllErrors();
+            for(ObjectError e:ex){
+                log.info("------------------------");
+                log.info(e.getDefaultMessage());
+            }
+            throw new Exception("형식 오류"+errors.toString());
+        }
+        try {
+            userService.register(user);
+            session.setAttribute("logincust",user);
+        } catch (Exception e) {
+            throw new Exception("가입 오류");
+        }
+        model.addAttribute("rcust", user);
+        model.addAttribute("center",dir+"center");
+        return "index";
+    }
 }
