@@ -52,8 +52,8 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
 
-    <%-- jquery --%>
-<%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>--%>
+    <!-- 제이쿼리 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body id="body">

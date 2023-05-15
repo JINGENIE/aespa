@@ -22,5 +22,16 @@
           and  c.product_id = i.product_id
           and  c.user_id = #{user_id}
     </select>
-
+    <!-- 이미 담긴 상품이면 update. 없으면 insert   -->
+    <insert id="insert" parameterType="cart">
+        MERGE INTO cart
+            USING dual
+            ON (user_id = #{user_id} AND product_id = #{product_id})
+            WHEN NOT MATCHED THEN
+                INSERT (user_id, product_id, cart_quantity, cart_date)
+                    VALUES (#{user_id}, #{product_id}, #{cart_quantity}, SYSDATE)
+            WHEN MATCHED THEN
+                UPDATE SET
+                    cart_quantity = cart_quantity+ #{cart_quantity}
+    </insert>
 </mapper>

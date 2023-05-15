@@ -15,6 +15,14 @@ public class Cart { // 6개의 칼럼
         private Date cart_date; // 상품을 장바구니에 담은 등록일자
         private String cart_status; // 상태 코드 ? 정리필요
 
+        // 카트에 상품 추가 시 update 항목들 (4개)
+        public Cart(String user_id, int product_id, int cart_quantity, Date cart_date) {
+                this.user_id = user_id;
+                this.product_id = product_id;
+                this.cart_quantity = cart_quantity;
+                this.cart_date = cart_date;
+        }
+
         // 참고. 추후에 나의 장바구니 조회할 때 보여줄 상품들을 위해, 아래와 같이 추가.
         // Product 테이블과 join을 통해
         // product_name / product_imgname / product_price 를 가져와서 보여줄 예정~
