@@ -3,6 +3,7 @@ package com.kbstar.controller;
 
 import com.kbstar.dto.Cart;
 import com.kbstar.dto.Product;
+import com.kbstar.dto.User;
 import com.kbstar.service.CartService;
 import com.kbstar.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 // 컨트롤러 설명 : Product를 담고, 담은 상품 중 order하기 위한 기능을 담당하는 곳.
@@ -48,4 +50,24 @@ public class CartController {
         return "index";
     }
 
+    // cart 조회 페이지에서 product_id별 삭제하기.
+    // 127.0.0.1/cart/remove?product_id=${obj.product_id}
+    @RequestMapping("/remove")
+    public String remove(Model model, Integer product_id, HttpSession session) throws Exception {
+
+        try {
+            cartService.remove(product_id);
+            if(session != null){ // ses 정보 남아있어야 삭제 완료 > 본페이지 이동
+                User user = (User) session.getAttribute("loginuser");
+                return "redirect:/cart?user_id="+user.getUser_id();
+                //회원의 장바구니 페이지로 회귀하기.
+
+            }else{
+                return "index"; // ses 정보 사라지면 > 홈으로 이동
+            }
+        } catch (Exception e) {
+            throw new Exception(e);
+        }
+
+    }
 }

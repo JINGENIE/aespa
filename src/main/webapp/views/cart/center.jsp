@@ -63,7 +63,7 @@
                             <td class="">$600.00</td>
 
                             <td class="">
-                              <a class="product-remove" href="#!">삭제하기</a>
+                              <a class="product-remove" href="/cart/remove?product_id=${obj.product_id}">삭제하기</a>
                             </td>
                           </tr>
                       </c:forEach>
