@@ -16,6 +16,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import javax.swing.text.html.HTMLDocument;
 import java.util.List;
 
 
@@ -80,6 +81,20 @@ public class MainController {
         }
         model.addAttribute("rcust", user);
         model.addAttribute("center",dir+"center");
+        return "index";
+    }
+
+    @RequestMapping("/profile")
+    public String profile(Model model, HttpSession session, User user) throws Exception {
+        List<User>list =null;
+//        if(session == null) {
+//       // session.setAttribute("loginuser", "loginuser");
+//        return "/login";
+//        }
+
+        list = (List<User>) userService.get(user.getUser_id());
+        model.addAttribute("myuser",list);
+        model.addAttribute("center", "profile"); // center에 login페이지 표출
         return "index";
     }
 }
