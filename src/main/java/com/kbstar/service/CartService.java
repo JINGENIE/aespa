@@ -49,5 +49,9 @@ public class CartService implements AespaService<Integer, Cart> {
     public List<Cart> get() throws Exception {
         return cartMapper.selectall();
     }
-    // 추후에, 내가 담은 카트만 조회하는 함수 만들 예정.
+    // 로그인한 회원(loginuser)의 장바구니 조회하기
+    public List<Cart> getmycart(String user_id) throws Exception {
+        return cartMapper.getmycart(user_id);
+        // 전체회원의 장바구니 조회 아니고, loginuser의 장바구니만 조회하기.( = uid)
+    }
 }

@@ -91,7 +91,8 @@
                 <!-- Cart -->
                 <ul class="top-menu text-right list-inline">
                     <li class="dropdown cart-nav dropdown-slide">
-                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+                        <!-- 카트 선택 시 로그인한 고객이 담은 본인의 카트 정보조회 연동 -->
+                        <a href="/cart?user_id=${loginuser.user_id}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                 class="tf-ion-android-cart"></i>Cart</a>
                         <div class="dropdown-menu cart-dropdown">
                             <!-- Cart Item -->
@@ -130,7 +131,7 @@
                                 <span class="total-price">$1799.00</span>
                             </div>
                             <ul class="text-center cart-buttons">
-                                <li><a href="/cart" class="btn btn-small">자세히 보기</a></li>
+                                <li><a href="/cart?user_id=${loginuser.user_id}" class="btn btn-small">자세히 보기</a></li>
                                 <li><a href="#order" class="btn btn-small btn-solid-border">주문하기</a></li>
                             </ul>
                         </div>
@@ -254,8 +255,8 @@
                            role="button" aria-haspopup="true" aria-expanded="false">Service <span
                                 class="tf-ion-ios-arrow-down"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="typography.html">Store</a></li>
-                            <li><a href="buttons.html">Repair</a></li>
+                            <li><a href="typography.html">매장찾기</a></li>
+                            <li><a href="buttons.html">수리문의</a></li>
                             <li><a href="alerts.html">Contect</a></li>
                         </ul>
                     </li><!-- / Blog -->
