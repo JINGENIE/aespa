@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
+<%@ include file="header.jsp" %>
 <!-- center 시작 구간 -->
 <!-- 상단 슬라이드  이미지 구간 -->
 <div class="hero-slider">

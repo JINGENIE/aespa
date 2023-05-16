@@ -45,6 +45,7 @@ public class ShopController {
         model.addAttribute("allproduct", list);
         // center에 shop 페이지 표출
         model.addAttribute("center", dir + "center");
+        model.addAttribute("header",dir +"header");
         return "index";
     }
 
