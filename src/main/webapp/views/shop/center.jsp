@@ -2,7 +2,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<script>
+  // 장바구니 담기 기능
 
+
+  // 화면에 접속 되면 로그인폼 객체에 이닛을 출력해라
+  $(function (){
+    product_add.init();
+  });
+</script>
 <!-- center 시작 구간 -->
 <section class="page-header">
   <div class="container">
@@ -83,7 +91,7 @@
                     <p class="product-short-description">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
                     </p>
-                    <a href="/cart?user_id=${loginuser.user_id}" class="btn btn-main">장바구니에 담기</a>
+                    <a href="/cart?user_id=${loginuser.user_id}" class="btn btn-main" id="cart_btn">장바구니에 담기</a>
                     <a href="product-single.html" class="btn btn-transparent">View Product Details</a>
                   </div>
                 </div>

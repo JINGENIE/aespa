@@ -28,7 +28,7 @@ public class InsertTest {
     @Test
     void contextLoads(){
         Product product1 = new Product(0, "클러스터이어링", 1050000, null,"tiffany_ring3.jpg", 102);
-        Product product2 = new Product(0, "진주드롭이어링222", 890000, null,"tiffany_earring3.jpg", 101);
+        Product product2 = new Product(0, "진주드롭이어링222", 890000, null,"tiffany_earring3.jpg", 101, 1);
         try {
                 service.register(product2);
             log.info("=========== Aespa 판매 상품 신규 등록 완료============");

@@ -92,54 +92,40 @@
                 <!-- Cart -->
                 <ul class="top-menu text-right list-inline">
                     <li class="dropdown cart-nav dropdown-slide">
-                        <!-- 카트 선택 시 로그인한 고객이 담은 본인의 카트 정보조회 연동 -->
+                        <!-- 카트 선택 시 로그인한 고객이라면, 본인의 카트 정보조회 dropdown -->
+<%--                        <c:if test="${loginuser != null }">--%>
                         <a href="/cart?user_id=${loginuser.user_id}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                 class="tf-ion-android-cart"></i> Cart</a>
-                        <div class="dropdown-menu cart-dropdown">
-                            <!-- 로그인 한 고객의 Cart Item 을 드롭다운 하기 -->
-                            <c:forEach var="obj" items="${mycart}">
-                            <div class="media">
-                                <a class="pull-left" href="#!">
-                                    <img class="media-object" src="/img/${obj.product_imgname}" alt="image" />
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#!">${obj.product_name}</a></h4>
-                                    <div class="cart-price">
-                                        <span>${obj.cart_quantity}</span>
-                                        <span>${obj.product_price}</span>
+                            <div class="dropdown-menu cart-dropdown">
+
+                                <!-- 로그인 한 고객의 Cart Item 을 드롭다운 하기 -->
+                                <div class="media" >
+                                    <a class="pull-left" href="#!">
+                                        <img class="media-object" src="/img/${obj.product_imgname}" alt="image" />
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="#!">${obj.product_name}</a></h4>
+                                        <div class="cart-price">
+                                            <span>${obj.cart_quantity}</span>
+                                            <span>${obj.product_price}</span>
+                                        </div>
+                                        <h5><strong>${obj.product_price}</strong></h5>
+                                        <p>Product ID: ${obj.product_id}</p> <!-- 추가 -->
                                     </div>
-                                    <h5><strong>${obj.product_price}</strong></h5>
-                                    <p>Product ID: ${obj.product_id}</p> <!-- 추가 -->
+
+                                    <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
+                                </div><!-- / Cart Item -->
+
+                                <div class="cart-summary">
+                                    <span>Total</span>
+                                    <span class="total-price">$1799.00</span>
                                 </div>
-                                <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                            </div>
-                            </c:forEach><!-- / Cart Item -->
-                            <!-- Cart Item -->
-<%--                            <div class="media">--%>
-<%--                                <a class="pull-left" href="#!">--%>
-<%--                                    <img class="media-object" src="/images/shop/cart/cart-2.jpg" alt="image" />--%>
-<%--                                </a>--%>
-<%--                                <div class="media-body">--%>
-<%--                                    <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>--%>
-<%--                                    <div class="cart-price">--%>
-<%--                                        <span>1 x</span>--%>
-<%--                                        <span>1250.00</span>--%>
-<%--                                    </div>--%>
-<%--                                    <h5><strong>$1200</strong></h5>--%>
-<%--                                </div>--%>
-<%--                                <a href="#!" class="remove"><i class="tf-ion-close"></i></a>--%>
-<%--                            </div><!-- / Cart Item -->--%>
+                                <ul class="text-center cart-buttons">
+                                    <li><a href="/cart?user_id=${loginuser.user_id}" class="btn btn-small">자세히 보기</a></li>
+                                    <li><a href="#order" class="btn btn-small btn-solid-border">주문하기</a></li>
+                                </ul>
 
-                            <div class="cart-summary">
-                                <span>Total</span>
-                                <span class="total-price">$1799.00</span>
                             </div>
-                            <ul class="text-center cart-buttons">
-                                <li><a href="/cart?user_id=${loginuser.user_id}" class="btn btn-small">자세히 보기</a></li>
-                                <li><a href="#order" class="btn btn-small btn-solid-border">주문하기</a></li>
-                            </ul>
-                        </div>
-
                     </li><!-- / Cart -->
                     <!-- Mypage -->
                     <li class="dropdown dropdown-slide">
