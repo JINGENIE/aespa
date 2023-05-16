@@ -2,8 +2,10 @@ package com.kbstar.controller;
 
 
 import ch.qos.logback.classic.Logger;
+import com.kbstar.dto.Cart;
 import com.kbstar.dto.Product;
 import com.kbstar.dto.User;
+import com.kbstar.service.CartService;
 import com.kbstar.service.ProductService;
 import com.kbstar.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +29,8 @@ public class MainController {
     ProductService productService;
     @Autowired
     UserService userService;
+    @Autowired
+    CartService cartService;
     Logger logger;
     String dir = "shop/";
     // 0- 초기화면 : 127.0.0.1
@@ -159,5 +163,11 @@ public class MainController {
             return "fail";
         }
         return "success";
+    }
+
+    @RequestMapping("/addcart")
+    public Object addcart(Model model, Cart cart) throws Exception {
+        cartService.register(cart);
+        return "redirect:/shop/"; // shop의 한번에보기 페이지로 바로 이동.
     }
 }
