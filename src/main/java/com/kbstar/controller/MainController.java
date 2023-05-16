@@ -46,7 +46,7 @@ public class MainController {
         model.addAttribute("center", "login"); // center에 login페이지 표출
         return "index";
     }
-
+//loginimpl
     @RequestMapping("/loginimpl")
     public String loginimpl(Model model, String user_id, String user_pwd, HttpSession session) throws Exception {
         String nextPage = "loginfail";
