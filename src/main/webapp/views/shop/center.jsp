@@ -1,16 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
 
 <script>
-  // 장바구니 담기 기능
+  $(document).ready(function() {
+    $('#cart_addbtn').on('click', function() {
+      var cartQuantity = $('#cart_quantity').val();
 
-
-  // 화면에 접속 되면 로그인폼 객체에 이닛을 출력해라
-  $(function (){
-    product_add.init();
+      if (cartQuantity.trim() === '') {
+        alert('상품의 수량을 입력해 주세요');
+        return false; // Prevent form submission
+      }
+    });
   });
 </script>
+<!-- header 구간  -->
+<jsp:include page="/views/header.jsp" />
 <!-- center 시작 구간 -->
 <section class="page-header">
   <div class="container">
@@ -50,9 +56,9 @@
 									</span>
 
                   </li>
-                  <li>
-                    <a href="#!" ><i class="tf-ion-ios-heart"></i></a>
-                  </li>
+<%--                  <li>--%>
+<%--                    <a href="#!" ><i class="tf-ion-ios-heart"></i></a>--%>
+<%--                  </li>--%>
                   <li>
                     <a href="/cart?user_id=${loginuser.user_id}"><i class="tf-ion-android-cart"></i></a>
                   </li>
@@ -95,9 +101,20 @@
                       <p class="product-short-description">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
                       </p>
-                        <%--  페이지 변환됨.(ajax로 데이터 보내는 방식이 아니라서.)  --%>
-                      <button type="submit" class="btn btn-main" id="cart_addbtn"> 장바구니에 담기</button>
-                      <a href="product-single.html" class="btn btn-transparent">View Product Details</a>
+                        <%--  페이지 변환 방식.(ajax로 데이터 보내는 방식 아님..)  --%>
+                        <%--  미로그인 고객 : 장바구니 담기 클릭 시 login 이동  --%>
+                        <%--  로그인 고객 : 장바구니 담기 클릭 시 cart로 자동 담김.  --%>
+                      <c:choose>
+                          <c:when test="${loginuser == null}">
+                            <a href="/shop/detail?product_id=${obj.product_id}" class="btn btn-transparent">상품 자세히보기</a>
+                            <a href="/login" class="btn btn-main btn-large"> 장바구니에 담기</a>
+                          </c:when>
+                        <c:otherwise>
+                          <a href="/shop/detail?product_id=${obj.product_id}" class="btn btn-transparent">상품 자세히보기</a>
+                          <button type="submit" class="btn btn-main default" id="cart_addbtn"> 장바구니에 담기</button>
+                        </c:otherwise>
+                      </c:choose>
+
                     </div>
                   </div>
                 </form>

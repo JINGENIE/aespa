@@ -6,7 +6,8 @@
     login_form.init();
   })
 </script>
-
+<!-- header 구간  -->
+<jsp:include page="/views/header.jsp" />
 <section class="signin-page account">
   <div class="container">
     <div class="row">

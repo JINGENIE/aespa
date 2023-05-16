@@ -2,7 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
+<!-- header 구간  -->
+<jsp:include page="/views/header.jsp" />
 <!-- center 시작 구간 -->
 <section class="page-header">
   <div class="container">
@@ -30,6 +31,9 @@
               <div class="block">
                 <div class="product-list">
                   <form id="cart_form" >
+                    <c:set var="middletotal" value="0" />
+                    <c:set var="total" value="0" />
+
                     <table class="table">
                       <colgroup >
                         <col width="20%" />
@@ -60,8 +64,10 @@
                             <td><a href="#!">${obj.product_name}</a></td>
                             <td class="">${obj.cart_quantity}</td>
                             <td class=""><fmt:formatNumber value="${obj.product_price}" pattern="₩ ###,###" /></td>
-                            <td class="">$600.00</td>
 
+                            <c:set var="middletotal" value="${middletotal = (obj.cart_quantity * obj.product_price) }" />
+                            <td class="">₩ <fmt:formatNumber value="${middletotal}" pattern="###,###" /></td>
+                            <c:set var="total" value="${total + (obj.cart_quantity * obj.product_price) }" />
                             <td class="">
                               <a class="product-remove" href="/cart/remove?product_id=${obj.product_id}">삭제하기</a>
                             </td>
@@ -69,7 +75,12 @@
                       </c:forEach>
 
                       </tbody>
+
                     </table>
+                    <br>
+                    <%--  장바구니에 담긴 아이템 금액 합계 찍기위해 상단에 set으로 변수 total선언, 하단에 value표기--%>
+                    <h3 style="text-align: right" ><strong> 총 결제 금액 ₩ <fmt:formatNumber value="${total}" pattern="###,###" /></strong></h3>
+                    <br>
                     <a href="/shop" class="btn btn-main pull-center">다른상품 보러가기</a>
                     <a href="/order" class="btn btn-main pull-right">주문하기</a>
                     <%-- 주문할 항목만 선택할 수 있게 체크박스 넣어보기. --%>

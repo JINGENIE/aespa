@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
+<%@ include file="header.jsp" %>
 <!-- center 시작 구간 -->
 <!-- 상단 슬라이드  이미지 구간 -->
 <div class="hero-slider">
@@ -134,7 +134,8 @@
     </div><%--  각각의 Product가 담긴 영역 끝.   --%>
     <!-- Modal창 팝업을 통한 상품 상세보기 forEach 한번 더! -->
     <c:forEach  var="obj" items="${allproduct}" >
-      <div class="modal product-modal fade" id="product-modal${obj.product_id}"><%-- 위에서 선언한 #product-modal 와 똑같이 써야 해당 제품의 상세정보  --%>
+      <div class="modal product-modal fade" id="product-modal${obj.product_id}">
+          <%-- 위에서 선언한 #product-modal 와 똑같이 써야 해당 제품의 상세정보  --%>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <i class="tf-ion-close"></i>
         </button>
@@ -142,24 +143,39 @@
           <div class="modal-content">
             <div class="modal-body">
               <div class="row">
-
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                  <div class="modal-image">
-                    <img class="img-responsive" src="/img/${obj.product_imgname}" alt="product-img" />
+                <form id="cart_form" action="/addcart" method="get">
+                  <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="modal-image">
+                      <img class="img-responsive" src="/img/${obj.product_imgname}" alt="product-img" />
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                  <div class="product-short-details">
-                    <h2 class="product-title">${obj.product_name}</h2>
-                    <p class="product-price"><fmt:formatNumber value="${obj.product_price}" type="number" pattern="₩ ###,###" /></p>
-                    <p class="product-short-description">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
-                    </p>
-                    <a href="/cart?user_id=${loginuser.user_id}" class="btn btn-main">장바구니에 담기</a>
-                    <a href="product-single.html" class="btn btn-transparent">View Product Details</a>
-                  </div>
-                </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="product-short-details">
+                      <input type="hidden" name="user_id" value="${loginuser.user_id}"/>
+                      <input type="hidden" name="product_id" value="${obj.product_id}"/>
+                      <h2 class="product-title">${obj.product_name}</h2>
+                      <p class="product-price"><fmt:formatNumber value="${obj.product_price}" type="number" pattern="₩ ###,###" /></p>
+                      <input type="number" class="form-control" id="cart_quantity" name="cart_quantity" placeholder="수량을 선택하세요" >
+                      <p class="product-short-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
+                      </p>
+                        <%--  페이지 변환 방식.(ajax로 데이터 보내는 방식 아님..)  --%>
+                        <%--  미로그인 고객 : 장바구니 담기 클릭 시 login 이동  --%>
+                        <%--  로그인 고객 : 장바구니 담기 클릭 시 cart로 자동 담김.  --%>
+                      <c:choose>
+                        <c:when test="${loginuser == null}">
+                          <a href="/login" class="btn btn-main btn-large"> 장바구니에 담기</a>
+                          <a href="product-single.html" class="btn btn-transparent">View Product Details</a>
+                        </c:when>
+                        <c:otherwise>
+                          <button type="submit" class="btn btn-main" id="cart_addbtn"> 장바구니에 담기</button>
+                          <a href="product-single.html" class="btn btn-transparent">View Product Details</a>
+                        </c:otherwise>
+                      </c:choose>
 
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
