@@ -2,15 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<script>
-  // 장바구니 담기 기능
-
-
-  // 화면에 접속 되면 로그인폼 객체에 이닛을 출력해라
-  $(function (){
-    product_add.init();
-  });
-</script>
 <!-- center 시작 구간 -->
 <section class="page-header">
   <div class="container">

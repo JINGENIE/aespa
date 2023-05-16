@@ -3,7 +3,7 @@
 <%--JSTL : 통화 날짜를 표현하게 해주는 문법--%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 
 <!--
@@ -93,57 +93,57 @@
                 <ul class="top-menu text-right list-inline">
                     <li class="dropdown cart-nav dropdown-slide">
                         <!-- 카트 선택 시 로그인한 고객이라면, 본인의 카트 정보조회 dropdown -->
-<%--                        <c:if test="${loginuser != null }">--%>
+                        <%--                        <c:if test="${loginuser != null }">--%>
                         <a href="/cart?user_id=${loginuser.user_id}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                 class="tf-ion-android-cart"></i> Cart</a>
-                            <div class="dropdown-menu cart-dropdown">
+                        <div class="dropdown-menu cart-dropdown">
 
-                                <!-- 로그인 한 고객의 Cart Item 을 드롭다운 하기 -->
-                                <div class="media" >
-                                    <a class="pull-left" href="#!">
-                                        <img class="media-object" src="/img/${obj.product_imgname}" alt="image" />
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><a href="#!">${obj.product_name}</a></h4>
-                                        <div class="cart-price">
-                                            <span>${obj.cart_quantity}</span>
-                                            <span>${obj.product_price}</span>
-                                        </div>
-                                        <h5><strong>${obj.product_price}</strong></h5>
-                                        <p>Product ID: ${obj.product_id}</p> <!-- 추가 -->
+                            <!-- 로그인 한 고객의 Cart Item 을 드롭다운 하기 -->
+                            <div class="media" >
+                                <a class="pull-left" href="#!">
+                                    <img class="media-object" src="/img/${obj.product_imgname}" alt="image" />
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="#!">${obj.product_name}</a></h4>
+                                    <div class="cart-price">
+                                        <span>${obj.cart_quantity}</span>
+                                        <span>${obj.product_price}</span>
                                     </div>
-
-                                    <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                </div><!-- / Cart Item -->
-
-                                <div class="cart-summary">
-                                    <span>Total</span>
-                                    <span class="total-price">$1799.00</span>
+                                    <h5><strong>${obj.product_price}</strong></h5>
+                                    <p>Product ID: ${obj.product_id}</p> <!-- 추가 -->
                                 </div>
-                                <ul class="text-center cart-buttons">
-                                    <li><a href="/cart?user_id=${loginuser.user_id}" class="btn btn-small">자세히 보기</a></li>
-                                    <li><a href="#order" class="btn btn-small btn-solid-border">주문하기</a></li>
-                                </ul>
 
+                                <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
+                            </div><!-- / Cart Item -->
+
+                            <div class="cart-summary">
+                                <span>Total</span>
+                                <span class="total-price">$1799.00</span>
                             </div>
+                            <ul class="text-center cart-buttons">
+                                <li><a href="/cart?user_id=${loginuser.user_id}" class="btn btn-small">자세히 보기</a></li>
+                                <li><a href="#order" class="btn btn-small btn-solid-border">주문하기</a></li>
+                            </ul>
+
+                        </div>
                     </li><!-- / Cart -->
                     <!-- Mypage -->
                     <li class="dropdown dropdown-slide">
                         <!-- 미로그인 고객 : 로그인하기 화면 보여주기 | 로그인 고객 : 내정보 수정 & 로그아웃 화면 보여주기 -->
                         <c:choose>
-                        <c:when test="${loginuser == null}">
-                        <a href="/login" class="dropdown-toggle" data-toggle="" data-hover="dropdown" data-delay="350"
-                           role="button" aria-haspopup="true" aria-expanded="false"><span class="tf-ion-android-person"></span> Login</a><!-- Main Controller -->
-                        </c:when>
-                        <c:otherwise>
-                        <a href="/profile?id=${loginuser.user_id}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                           role="button" aria-haspopup="true" aria-expanded="false"><span class="tf-ion-android-person"></span> ${loginuser.user_id} <span
-                                class="tf-ion-ios-arrow-down"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/profile"> 내정보 수정</a></li>
-                            <li><a href="/logout"> Logout</a></li><!-- Main Controller -->
-                        </ul>
-                        </c:otherwise>
+                            <c:when test="${loginuser == null}">
+                                <a href="/login" class="dropdown-toggle" data-toggle="" data-hover="dropdown" data-delay="350"
+                                   role="button" aria-haspopup="true" aria-expanded="false"><span class="tf-ion-android-person"></span> Login</a><!-- Main Controller -->
+                            </c:when>
+                            <c:otherwise>
+                                <a href="/changeinfo" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                                   role="button" aria-haspopup="true" aria-expanded="false"><span class="tf-ion-android-person"></span> ${loginuser.user_id} <span
+                                        class="tf-ion-ios-arrow-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/profile"> 내정보 수정</a></li>
+                                    <li><a href="/logout"> Logout</a></li><!-- Main Controller -->
+                                </ul>
+                            </c:otherwise>
                         </c:choose>
                     </li><!-- / Mypage -->
 
@@ -264,16 +264,16 @@
         </div><!-- / .container -->
     </nav>
 </section>
-    <!-- center 시작 -->
-    <c:choose>
-        <c:when test="${center == null}">
-            <jsp:include page="center.jsp"/>
-        </c:when>
-        <c:otherwise>
-            <jsp:include page="${center}.jsp"/>
-        </c:otherwise>
-    </c:choose>
-     <%-- center 끝. --%>
+<!-- center 시작 -->
+<c:choose>
+    <c:when test="${center == null}">
+        <jsp:include page="center.jsp"/>
+    </c:when>
+    <c:otherwise>
+        <jsp:include page="${center}.jsp"/>
+    </c:otherwise>
+</c:choose>
+<%-- center 끝. --%>
 
 
 

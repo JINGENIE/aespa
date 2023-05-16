@@ -50,19 +50,27 @@ public class MainController {
     @RequestMapping("/loginimpl")
     public String loginimpl(Model model, String user_id, String user_pwd, HttpSession session) throws Exception {
         String nextPage = "loginfail";
+        List<Product> list = null;
+        list = productService.get();
+
         try {
             User user = userService.get(user_id);
             if (user != null && user.getUser_pwd().equals(user_pwd)) {
                 session.setMaxInactiveInterval(100000);
                 session.setAttribute("loginuser", user);
+                session.setAttribute("allproduct", list);
+                //dir+ center로만 하면 procuct를 못가져와서, product 정보를 로그인 후 화면에 뿌려주기
+                model.addAttribute("center", dir + "center");
+                //아이디와 비밀번호가 맞으면, shop center로 랜딩
             } else {
                 model.addAttribute("center", nextPage);
+                //그 외의 경우 nextpage
             }
         } catch (Exception e) {
             logger.error(e.getMessage());
             nextPage = "loginfail";
         }
-        model.addAttribute("center", dir + "center");
+
         return "index";
     }
     //
@@ -106,7 +114,7 @@ public class MainController {
         }
         try {
             userService.modify(user);
-            session.setAttribute("updateuser",user);
+            session.setAttribute("loginuser",user);
         } catch (Exception e) {
             throw new Exception("가입 오류");
         }
@@ -132,6 +140,7 @@ public class MainController {
         // 로그인한 사용자의 아이디를 이용해 사용자 정보를 조회
         User userInfo = userService.get(user.getUser_id());
         model.addAttribute("center", "changeInfo");
+        model.addAttribute("userdetail",user);
         return "index";
     }
 
