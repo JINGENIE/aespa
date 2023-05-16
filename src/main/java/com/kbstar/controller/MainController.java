@@ -1,6 +1,7 @@
 package com.kbstar.controller;
 
 
+import ch.qos.logback.classic.Logger;
 import com.kbstar.dto.Product;
 import com.kbstar.dto.User;
 import com.kbstar.service.ProductService;
@@ -26,7 +27,7 @@ public class MainController {
     ProductService productService;
     @Autowired
     UserService userService;
-
+    Logger logger;
     String dir = "shop/";
     // 0- 초기화면 : 127.0.0.1
     @RequestMapping("/")
@@ -45,16 +46,25 @@ public class MainController {
         model.addAttribute("center", "login"); // center에 login페이지 표출
         return "index";
     }
-    // 1-2 로그인 검증 기능 : 127.0.0.1/loginimpl
-    @RequestMapping("/loginimpl")
-    public String loginimpl(Model model,  HttpSession session){
-      //  model.addAttribute("center", "login"); // center에 login페이지 표출
-        if(session != null){
-            session.invalidate();
-        }
-        return "redirect:/";
-    }
 
+    @RequestMapping("/loginimpl")
+    public String loginimpl(Model model, String user_id, String user_pwd, HttpSession session) throws Exception {
+        String nextPage = "loginfail";
+        try {
+            User user = userService.get(user_id);
+            if (user != null && user.getUser_pwd().equals(user_pwd)) {
+                session.setMaxInactiveInterval(100000);
+                session.setAttribute("loginuser", user);
+            } else {
+                model.addAttribute("center", nextPage);
+            }
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            nextPage = "loginfail";
+        }
+        model.addAttribute("center", dir + "center");
+        return "index";
+    }
     //
     @RequestMapping("/register")
     public String register(Model model){
@@ -74,12 +84,21 @@ public class MainController {
         }
         try {
             userService.register(user);
-            session.setAttribute("logincust",user);
+            session.setAttribute("loginuser",user);
         } catch (Exception e) {
             throw new Exception("가입 오류");
         }
-        model.addAttribute("rcust", user);
+        model.addAttribute("ruser", user);
         model.addAttribute("center",dir+"center");
+        return "index";
+    }
+    @RequestMapping("/profile")
+    public String profile(Model model, HttpSession session) throws Exception {
+        User user = (User) session.getAttribute("loginuser");
+        String userId = user.getUser_id();
+        User profileUser = userService.get(userId);
+        model.addAttribute("userinfo", profileUser);
+        model.addAttribute("center", "profile");
         return "index";
     }
 }

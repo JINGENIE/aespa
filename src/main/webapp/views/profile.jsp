@@ -17,10 +17,10 @@
             <div class="media-body">
                 <div class="media-body">
                     <ul class="user-profile-list">
-                        <li><span>Full Name:</span>${user.user_name}</li>
-                        <li><span>Country:</span>${user.user_address}</li>
-                        <li><span>Phone:</span>${user.user_contact}</li>
-                        <li><span>Date of Birth:</span>${user.user_birthday}</li>
+                        <li><span>Full Name:</span>${userinfo.user_name}</li>
+                        <li><span>Country:</span>${userinfo.user_address}</li>
+                        <li><span>Phone:</span>${userinfo.user_contact}</li>
+                        <li><span>Date of Birth:</span>${userinfo.user_birthday}</li>
                     </ul>
                 </div>
             </div>
