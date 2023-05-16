@@ -2,8 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--JSTL : 통화 날짜를 표현하게 해주는 문법--%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
 <!DOCTYPE html>
 
 <!--
@@ -50,7 +50,7 @@
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- 제이쿼리 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <%-- 부트스트랩 --%>
@@ -128,24 +128,26 @@
                         </div>
                     </li><!-- / Cart -->
                     <!-- Mypage -->
-                    <li class="dropdown dropdown-slide">
-                        <!-- 미로그인 고객 : 로그인하기 화면 보여주기 | 로그인 고객 : 내정보 수정 & 로그아웃 화면 보여주기 -->
-                        <c:choose>
-                            <c:when test="${loginuser == null}">
-                                <a href="/login" class="dropdown-toggle" data-toggle="" data-hover="dropdown" data-delay="350"
+                    <c:choose>
+                        <c:when test="${loginuser == null}">
+                            <li class="dropdown dropdown-slide">
+                                <!-- 미로그인 고객 : 로그인하기 화면 보여주기 | 로그인 고객 : 내정보 수정 & 로그아웃 화면 보여주기 -->
+                                <a href="/login" class="" data-toggle="" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false"><span class="tf-ion-android-person"></span> Login</a><!-- Main Controller -->
-                            </c:when>
-                            <c:otherwise>
-                                <a href="/changeinfo" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="dropdown dropdown-slide">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false"><span class="tf-ion-android-person"></span> ${loginuser.user_id} <span
                                         class="tf-ion-ios-arrow-down"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/profile"> 내정보 수정</a></li>
                                     <li><a href="/logout"> Logout</a></li><!-- Main Controller -->
                                 </ul>
-                            </c:otherwise>
-                        </c:choose>
-                    </li><!-- / Mypage -->
+                            </li>
+                        </c:otherwise>
+                    </c:choose><!-- / Mypage -->
 
                     <!-- Search -->
                     <li class="dropdown search dropdown-slide">

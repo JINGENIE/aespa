@@ -38,7 +38,7 @@ public class MainController {
     public String main(Model model) throws Exception {
         // selectAll 사용
         List<Product> list = null;
-            list = productService.get();
+        list = productService.get();
 
         // list에 담은 Product를 브라우저 화면에 보여주기(jsp파일에 입력 시 명칭 allproduct)
         model.addAttribute("allproduct", list);
@@ -50,7 +50,7 @@ public class MainController {
         model.addAttribute("center", "login"); // center에 login페이지 표출
         return "index";
     }
-//loginimpl
+    //loginimpl
     @RequestMapping("/loginimpl")
     public String loginimpl(Model model, String user_id, String user_pwd, HttpSession session) throws Exception {
         String nextPage = "loginfail";
@@ -107,7 +107,7 @@ public class MainController {
 
     @RequestMapping("/updateimpl")
     public String updateimpl(Model model,
-                               @Validated User user, Errors errors, HttpSession session) throws Exception {
+                             @Validated User user, Errors errors, HttpSession session) throws Exception {
         if(errors.hasErrors()){
             List<ObjectError> ex = errors.getAllErrors();
             for(ObjectError e:ex){
