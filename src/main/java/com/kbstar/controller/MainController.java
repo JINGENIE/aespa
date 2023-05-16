@@ -14,7 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -92,6 +92,28 @@ public class MainController {
         model.addAttribute("center",dir+"center");
         return "index";
     }
+
+    @RequestMapping("/updateimpl")
+    public String updateimpl(Model model,
+                               @Validated User user, Errors errors, HttpSession session) throws Exception {
+        if(errors.hasErrors()){
+            List<ObjectError> ex = errors.getAllErrors();
+            for(ObjectError e:ex){
+                log.info("------------------------");
+                log.info(e.getDefaultMessage());
+            }
+            throw new Exception("형식 오류"+errors.toString());
+        }
+        try {
+            userService.modify(user);
+            session.setAttribute("updateuser",user);
+        } catch (Exception e) {
+            throw new Exception("가입 오류");
+        }
+        model.addAttribute("ruser", user);
+        model.addAttribute("center",dir+"center");
+        return "index";
+    }
     @RequestMapping("/profile")
     public String profile(Model model, HttpSession session) throws Exception {
         User user = (User) session.getAttribute("loginuser");
@@ -100,5 +122,33 @@ public class MainController {
         model.addAttribute("userinfo", profileUser);
         model.addAttribute("center", "profile");
         return "index";
+    }
+    @RequestMapping("/changeInfo")
+    public String changeInfo(Model model, HttpSession session) throws Exception {
+        User user = (User) session.getAttribute("loginuser");
+        if (user == null) {
+            throw new Exception("user is not logged in");
+        }
+        // 로그인한 사용자의 아이디를 이용해 사용자 정보를 조회
+        User userInfo = userService.get(user.getUser_id());
+        model.addAttribute("center", "changeInfo");
+        return "index";
+    }
+
+    @GetMapping("/checkUserId")
+    @ResponseBody
+    public String checkUserId(@RequestParam String user_id) throws Exception {
+        // userId가 이미 DB에 존재하는지 확인하는 로직을 작성합니다.
+        // 존재한다면 true, 아니면 false를 반환합니다.
+        User user;
+        try {
+            user = userService.get(user_id);
+        } catch (Exception e) {
+            throw new Exception("아이디를 확인해주세요");
+        }
+        if (user != null) {
+            return "fail";
+        }
+        return "success";
     }
 }

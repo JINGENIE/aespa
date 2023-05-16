@@ -17,11 +17,11 @@ public class UpdateTest {
     @Test
     void contextLoads() {
         try {
-            User obj = new User("tiffanylover", "jinleerename","f", "pwd01",
+            User obj = new User("user01", "jinleerename","f", "pwd01",
                     "01033769412", "seoul, seoundong, alphaco 101","1994-12-28");
             service.modify(obj);
 
-            service.get("tiffanylover");
+            service.get("user01");
         } catch (Exception e) {
             log.info("오류");
         }

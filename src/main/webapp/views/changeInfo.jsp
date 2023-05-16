@@ -6,22 +6,22 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0f0752ec20b8a0352c5794754058b576"></script>
 <script>
-  let register_form = {
+  let update_form = {
     init: function () {
-        $('#register_btn').click(function () {
-        register_form.send();
+        $('#update_btn').click(function () {
+            update_form.send();
       });
     },
     send: function () {
-      $('#register_form').attr({
-        'action':'/registerimpl',
+      $('#update_form').attr({
+        'action':'/updateimpl',
         'method':'post'
       });
-      $('#register_form').submit();
+      $('#update_form').submit();
     }
   };
   $(function () {
-    register_form.init();
+      update_form.init();
   });
 
   var mapContainer = document.getElementById('map'), // 지도를 표시할 div
@@ -70,35 +70,13 @@
     }).open();
 
   }
-  function checkUserId() {
-      let userId = document.getElementById("user_id").value;
-      if (userId === "") {
-          alert("아이디를 입력해주세요.");
-          return;
-      }
 
-      $.ajax({
-          url: "/checkuserid",
-          type: "POST",
-          data: { user_id: userId },
-          success: function (result) {
-              if (result == "success") {
-                  document.getElementById("result").innerHTML = "사용 가능한 아이디입니다.";
-              } else {
-                  document.getElementById("result").innerHTML = "이미 사용 중인 아이디입니다.";
-              }
-          },
-          error: function () {
-              document.getElementById("result").innerHTML = "서버 오류가 발생했습니다.";
-          }
-      });
-  }
 </script>
 
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <form id = "register_form" class="form-horizontal">
+      <form id = "update_form" class="form-horizontal">
         <fieldset>
           <legend>회원가입</legend>
           <div class="form-group">
@@ -116,7 +94,7 @@
           <div class="form-group">
             <label for="user_name" class="col-lg-2 control-label">이름</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="user_name" name="user_name" placeholder="이름을 입력하세요." required>
+              <input type="text" class="form-control" id="user_name" name="user_name" value="${loginuser.user_name}" required>
             </div>
           </div>
           <div class="form-group">
@@ -154,13 +132,29 @@
           </div>
           <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-              <button type="button" id="register_btn" class="btn btn-primary">정보변경하기</button>
+              <button type="button" id="update_btn" class="btn btn-primary">정보변경하기</button>
             </div>
           </div>
         </fieldset>
       </form>
     </div>
   </div>
+    <style>
+        button {
+            background-color: #79c5b5; /* 티파니앤코 민트색 */
+            color: #fff;
+            border: none; /* 테두리 제거 */
+            font-size: 6px;
+            border-radius: 5px; /* 버튼 라운드 처리 */
+            height: 40px;
+            width: 70px;
+            cursor: pointer;
+        }
+
+
+    </style>
+
+
 
 
 

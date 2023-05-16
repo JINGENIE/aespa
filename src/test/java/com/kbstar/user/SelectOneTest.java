@@ -16,7 +16,7 @@ public class SelectOneTest {
     void contextLoads() {
         User user = null;
         try {
-            user = service.get("userhappy");
+            user = service.get("user01");
             log.info("-----------------------------------");
             log.info(user.toString());
             log.info("-----------------------------------");

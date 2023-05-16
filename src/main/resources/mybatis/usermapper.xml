@@ -13,10 +13,9 @@
     <insert id="insert" parameterType="user">
         INSERT INTO shopuser VALUES (#{user_id}, #{user_name}, #{user_gender}, #{user_pwd}, #{user_contact}, #{user_address}, SYSDATE, TO_DATE(#{user_birthday},'YYYY-MM-DD'), 0)
     </insert>
-    <update id="update"  parameterType="user">
-        UPDATE shopuser SET user_name = #{user_name},  user_gender = #{user_gender}, user_pwd = #{user_pwd},
-                            user_contact = #{user_contact}, user_address=#{user_address}, SYSDATE, TO_DATE(#{user_birthday},'YYYY-MM-DD') ,0
-                            WHERE user_id = #{user_id}
+    <update id="update" parameterType="user">
+        UPDATE shopuser SET user_name=#{user_name}, user_gender=#{user_gender}, user_pwd=#{user_pwd}, user_contact=#{user_contact},
+                            user_address=#{user_address}, user_birthday=#{user_birthday} WHERE user_id=#{user_id}
     </update>
 <!--    <update id="update" parameterType="user">-->
 <!--        UPDATE shopuser SET user_pwd=#{user_pwd}, user_name=#{user_name},-->
