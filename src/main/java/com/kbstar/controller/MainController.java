@@ -13,14 +13,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import java.util.List;
 
 
@@ -37,22 +35,13 @@ public class MainController {
     String dir = "shop/";
     // 0- 초기화면 : 127.0.0.1
     @RequestMapping("/")
-    public String main(Model model, @RequestParam(required = false) String user_id, HttpSession session) throws Exception {
+    public String main(Model model) throws Exception {
         // selectAll 사용
         List<Product> list = null;
         list = productService.get();
-        // main페이지 우측 상단 - cart 드롭다운 위한 기능
-        List<Cart> cartlist = null;
-        User user = (User) session.getAttribute("loginuser");
-        if(user != null){ // ses 정보 남아있어야 삭제 완료 > 본페이지 이동
-
-            cartlist = cartService.getmycart(user.getUser_id());
-        }
 
         // list에 담은 Product를 브라우저 화면에 보여주기(jsp파일에 입력 시 명칭 allproduct)
         model.addAttribute("allproduct", list);
-        model.addAttribute("allcartlist", cartlist);
-       // model.addAttribute("header","header");
         return "index";
     }
     // 1-1 로그인화면 : 127.0.0.1/login
@@ -176,4 +165,9 @@ public class MainController {
         return "success";
     }
 
+    @RequestMapping("/addcart")
+    public Object addcart(Model model, Cart cart) throws Exception {
+        cartService.register(cart);
+        return "redirect:/shop/"; // shop의 한번에보기 페이지로 바로 이동.
+    }
 }

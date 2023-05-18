@@ -65,6 +65,7 @@
                 <!-- Cart -->
                 <ul class="top-menu text-right list-inline">
                     <li class="dropdown cart-nav dropdown-slide">
+<<<<<<< HEAD
                         <c:set var="middletotal" value="0" />
                         <c:set var="total" value="0" />
                         <!-- 미 로그인 고객 cart 선택 시 : 로그인 페이지로 이동 -->
@@ -74,6 +75,10 @@
                             <a href="/login" ><i class="tf-ion-android-cart"></i> Cart</a>
                         </c:when>
                         <c:otherwise>
+=======
+                        <!-- 카트 선택 시 로그인한 고객이라면, 본인의 카트 정보조회 dropdown -->
+                        <%--                        <c:if test="${loginuser != null }">--%>
+>>>>>>> origin/master
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                 class="tf-ion-android-cart"></i> Cart</a>
                         <div class="dropdown-menu cart-dropdown">
@@ -81,6 +86,7 @@
                             <c:forEach var="cartItem" items="${allcartlist}">
                                 <!-- 각 카트 아이템을 드롭다운 메뉴에 표시하는 코드 -->
                                 <div class="media">
+<<<<<<< HEAD
                                     <a class="pull-left" href="/cart?user_id=${loginuser.user_id}">
                                         <img class="media-object" src="/img/${cartItem.product_imgname}" alt="image" />
                                     </a>
@@ -98,14 +104,34 @@
                                 </div>
                                 <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
                                 <c:set var="total" value="${total + (cartItem.cart_quantity * cartItem.product_price) }" />
+=======
+                                    <a class="pull-left" href="#!">
+                                        <img class="media-object" src="/img/${cartItem.product_imgname}" alt="image" />
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="#!">${cartItem.product_name}</a></h4>
+                                        <div class="cart-price">
+                                            <span>${cartItem.cart_quantity}</span>
+                                            <span>${cartItem.product_price}</span>
+                                        </div>
+                                        <h5><strong>${cartItem.product_price}</strong></h5>
+                                        <p>Product ID: ${cartItem.product_id}</p>
+                                    </div>
+                                </div>
+                                <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
+>>>>>>> origin/master
                             </c:forEach>
                             <!-- 나머지 드롭다운 메뉴 요소들 -->
                             <div class="cart-summary">
                                 <span>Total</span>
+<<<<<<< HEAD
                                 <span class="total-price">
                                     <%--  장바구니에 담긴 아이템 금액 합계 찍기위해 상단에 set으로 변수 total선언, 하단에 value표기--%>
                                 <span>₩ <fmt:formatNumber value="${total}" pattern="###,###" /></span>
                                 </span>
+=======
+                                <span class="total-price">$1799.00</span>
+>>>>>>> origin/master
                             </div>
                             <ul class="text-center cart-buttons">
                                 <li><a href="/cart?user_id=${loginuser.user_id}" class="btn btn-small">자세히 보기</a></li>
@@ -114,15 +140,22 @@
                         </div>
 
                         </div>
+<<<<<<< HEAD
                         </c:otherwise>
                         </c:choose>
+=======
+>>>>>>> origin/master
                     </li><!-- / Cart -->
                     <!-- Mypage -->
                     <c:choose>
                         <c:when test="${loginuser == null}">
                             <li class="dropdown dropdown-slide">
+<<<<<<< HEAD
                                 <!-- 미 로그인 고객 login 선택 시 : login 페이지 이동 -->
                                 <!-- 로그인 고객 login 가까이 drop 시 : 내정보 수정 / logout 가능 -->
+=======
+                                <!-- 미로그인 고객 : 로그인하기 화면 보여주기 | 로그인 고객 : 내정보 수정 & 로그아웃 화면 보여주기 -->
+>>>>>>> origin/master
                                 <a href="/login" class="" data-toggle="" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false"><span class="tf-ion-android-person"></span> Login</a><!-- Main Controller -->
                             </li>
@@ -158,6 +191,7 @@
     </div>
 </section><!-- End Top Header Bar -->
 
+<<<<<<< HEAD
 <!-- Main Menu Section -->
 <section class="menu">
     <nav class="navbar navigation">
@@ -256,3 +290,5 @@
         </div><!-- / .container -->
     </nav>
 </section>
+=======
+>>>>>>> origin/master

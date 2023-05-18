@@ -2,9 +2,7 @@ package com.kbstar.controller;
 
 
 import com.kbstar.dto.Product;
-import com.kbstar.dto.Productdetail;
 import com.kbstar.service.ProductService;
-import com.kbstar.service.ProductdetailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,13 +21,10 @@ public class ShopController {
 
     @Autowired
     ProductService productService;
-    @Autowired
-    ProductdetailService productdetailService;
 
     @Value("${uploadimgdir}") // 이렇게 세팅하면, 애플리케이션 프로퍼티에  정해둔, simg/ 폴더에 집어넣는다.
     String imgdir;
     String dir = "shop/";
-
 
 
     // 1-1 기본페이지 :상품 전체조회(한눈에보기 화면) : 127.0.0.1/shop
@@ -50,7 +45,6 @@ public class ShopController {
         model.addAttribute("allproduct", list);
         // center에 shop 페이지 표출
         model.addAttribute("center", dir + "center");
-        //model.addAttribute("header",dir +"header");
         return "index";
     }
 
@@ -182,20 +176,6 @@ public class ShopController {
         }
         model.addAttribute("allwedding", list);
         model.addAttribute("center", dir + "wedding");
-        return "index";
-    }
-    // 각 상품의 상세내용 조회 : 127.0.0.1/shop/detail?product_id=
-    @RequestMapping("/detail")
-    public String detail(Model model, int product_id) throws Exception {
-        Productdetail productdetail = null;
-
-        try {
-            productdetail = productdetailService.getselectdetail(product_id);
-        } catch (Exception e) {
-            throw new Exception("상품 세부내용 조회 중 오류가 발생했습니다.");
-        }
-        model.addAttribute("detail", productdetail);
-        model.addAttribute("center", dir + "detail");
         return "index";
     }
 
